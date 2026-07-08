@@ -1,0 +1,105 @@
+Risk ID: R1
+Paper ID: P01/P02
+Risk Name: Incomplete or Erroneous Data Migration
+Risk Description: Errors occurring during the transfer of data from old (often non-relational) databases to modern systems, leading to data corruption or system disturbance.
+Modernization Strategy: Migration / Replacement
+Dimension: Technical
+Granularity Level: Component-level (Database)
+Root Cause / Challenge: Use of obsolete database models that do not support modern relational structures.
+Trigger Event: Execution of the cut-over or data ETL (Extract, Transform, Load) phase.
+Impact / Consequences: New system instability, loss of business-critical data, high regaining costs.
+Linked Risks: System Downtime, Business Disruption.
+Stakeholders: Database Administrator, Software Architect, Data Analyst
+Contextual Constraints: Old non-supported databases, big data
+Evidence Type: Case Study / Expert Opinion
+Detection Source: Database Scheme Audit
+Key Terminology (Tags): #LegacyModernization, #DataMigration
+Standardized Risk Entry: Data migration is a critical risk factor where errors in transferring data from obsolete structures to modern environments can lead to system instability and business disruption.
+Key Quote for Prompting: "The main risk in modernization is that the data migration, which cannot be done perfectly. Errors are made and you have some risk that your new system is disturbed."
+Logic Pattern: IF [Non-Relational Database] AND [High Business Criticality] THEN [Incomplete or Erroneous Data Migration]
+
+
+Risk ID: R2
+Paper ID: P01, P04, G01
+Risk Name: Scarcity of Experts and Documentation
+Risk Description: Loss of knowledge as original developers retire or leave, combined with outdated or missing system documentation.
+Modernization Strategy: Re-engineering / Migration
+Dimension: Organizational/Process
+Granularity Level: System-wide
+Root Cause / Challenge: Aging workforce and lack of continuous documentation updates during the system's lifecycle
+Trigger Event: Retirement of key personnel
+Impact / Consequences: Project delays, inability to understand business logic, increased risk of system failure during modernization.
+Linked Risks: Incomplete or Erroneous Data Migration, Time Overrun
+Stakeholders: IT Manager, HR, Lead Architect
+Contextual Constraints: Leaving of a former architect
+Evidence Type: Statistical / Expert Opinion
+Detection Source: Documentation Audit
+Key Terminology (Tags): #ExpertTurnover, #UndocumentedSystem, #KnowledgeLoss, #TechnicalDebt
+Standardized Risk Entry: The loss of institutional knowledge and lack of up-to-date documentation regarding legacy system internals significantly increase the risk of errors and project failure during modernization
+Key Quote for Prompting: "The big problem is that you can't find people to understand them (legacy systems) and understand the technology"
+Logic Pattern: IF [Original Developers Absent] AND [Documentation Outdated] THEN [Scarcity of Experts and Documentation]
+
+Risk ID: R3
+Paper ID: P01, G01, G02
+Risk Name: Time Overrun
+Risk Description: Modernization projects frequently face strong time constraints caused by limited resources, changing requirements, and scarcity of experts.
+Modernization Strategy: 
+Dimension: Process
+Granularity Level: Enterprise-wide
+Root Cause / Challenge: Scarcity of experts, lack of resources, changing requests during long-term projects
+Trigger Event: Execution of long-running modernization projects
+Impact / Consequences: Delays, project pressure, reduced modernization quality
+Linked Risks: Resource shortage; changing requirements
+Stakeholders: Project Manager, IT Decision-Maker
+Contextual Constraints: Long-term modernization projects
+Evidence Type: Expert Opinion
+Detection Source: Project Plan
+Key Terminology (Tags): #TimeConstraints #ProjectManagement #LegacyModernization
+Standardized Risk Entry: Time pressure in modernization projects can reduce project quality and increase delivery risk, especially when resources and expertise are limited.
+Key Quote for Prompting: "time constraints to finish the modernization are the most prominent challenge"
+Logic Pattern: IF modernization projects are long-running AND resources are limited THEN time constraint risk increases.
+
+
+
+Risk ID: R4
+Paper ID: P01, P04, G01, P06
+Risk Name: Cost Overrun
+Risk Description: Initial cost estimations for migration (finance, time, personnel) are significantly lower than actual requirements.
+Modernization Strategy: Redeveloping / Refactoring
+Dimension: Business
+Granularity Level: Enterprise-wide
+Root Cause / Challenge: Underestimating complexity and hidden costs (e.g., service wrapping vs. subsequent replacement).
+Trigger Event: Lack of insight into required migration budget and legacy system complexity.
+Impact / Consequences: Financial waste; project delays; potential project cancellation. In one case, costs were 500% over budget.
+Linked Risks: Resource Shortage
+Stakeholders: Project Manager, Financial Department
+Contextual Constraints: Especially high risk when "service wrapping" hides the need for future deep code replacement.
+Evidence Type: Case Study (Swedish Company / European Bank)
+Detection Source: Initial Budget vs. Actual Spend
+Key Terminology (Tags): #Budgeting #CostOverrun #FinancialRisk
+Standardized Risk Entry: Underestimating modernization costs due to legacy complexity can lead to massive budget overruns and wasted resources.
+Key Quote for Prompting: "The real cost and time were around 500% more than the initial estimated budget."
+Logic Pattern: IF [Lack of insight on required budget] AND [Migration starts] THEN [Waste of money/Overrun occurs]
+   
+
+Risk ID: R5
+Paper ID: P01, P03, G01, G02
+Risk Name: Cultural and Staff Resistance
+Risk Description: Lack of support from employees or the wider organization due to fear of change or attachment to the old system.
+Modernization Strategy: Holistic Modernization
+Dimension: Organizational
+Granularity Level: System-wide
+Root Cause / Challenge: Cultural entrenchment in legacy processes and lack of clear communication about modernization benefits.
+Trigger Event: Introduction of the modernization project or new software interfaces.
+Impact / Consequences: Project sabotage, slow adoption, failure to realize business benefits.
+Linked Risks: Funding withdrawal, Project cancellation, Time Overrun
+Stakeholders: Employees, IT Staff, Management
+Contextual Constraints: Trust in legacy system
+Evidence Type: Statistical
+Detection Source: Staff Surveys
+Key Terminology (Tags): #CulturalResistance, #ChangeManagement, #StaffResistance, #TrustInProvenTech, #CustomerResistance
+Standardized Risk Entry: Modernization efforts often face internal resistance due to a fear of expertise obsolescence and a cultural preference for "proven" reliable legacy systems.
+Key Quote for Prompting: "Resistance to change from the organization... they fear that their expertise and professional experience... may become redundant."
+Logic Pattern: IF [Shift to New Technology] AND [lack of communication] THEN [Cultural and Staff Resistance]
+
+
