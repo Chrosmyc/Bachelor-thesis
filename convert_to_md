@@ -1,0 +1,40 @@
+from pathlib import Path
+import subprocess
+import sys
+
+
+BASE_DIR = Path(__file__).resolve().parent
+CONVERTER_DIR = BASE_DIR / "converter"
+
+CONVERTERS = [
+    "convert_mitigations_to_md.py",
+    "convert_relationship_mr_to_md.py",
+    "convert_relationship_rm_to_md.py",
+    "convert_relationship_rr_to_md.py",
+    "convert_risks_to_md.py",
+]
+
+
+def main():
+    for converter in CONVERTERS:
+        script_path = CONVERTER_DIR / converter
+
+        if not script_path.exists():
+            print(f"Skipped because not found: {script_path}")
+            continue
+
+        print(f"\nStarting: {converter}")
+
+        subprocess.run(
+            [sys.executable, converter],
+            cwd=CONVERTER_DIR,
+            check=True
+        )
+
+        print(f"Done: {converter}")
+
+    print("\nAll converters done!")
+
+
+if __name__ == "__main__":
+    main()

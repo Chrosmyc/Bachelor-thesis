@@ -1,0 +1,658 @@
+Relationship ID: Rel235
+Source Risk ID: R16 (Lack of Legacy System Disposition Strategy)
+Target Risk ID: R135 (Prolonged dual-system transition)
+Relationship Type: Triggers
+Influence Strength: High
+Applicability Conditions: Large-scale modernization where the legacy system is not actively decommissioned.
+Observed Outcome: Both legacy and modern systems operate concurrently for an extended period, multiplying costs.
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: A lack of a disposition strategy directly causes the legacy system to linger, forcing a prolonged dual-system transition and dual-maintenance overhead.
+Standardized Relationship Entry: IF a legacy system disposition strategy is lacking THEN a prolonged and costly dual-system transition is triggered.
+
+Relationship ID: Rel236
+Source Risk ID: R130 (Tool-only discovery misses undocumented dependencies)
+Target Risk ID: R107 (Unanticipated Interdependency Derailment)
+Relationship Type: Triggers
+Influence Strength: High
+Applicability Conditions: Automated discovery is used without SME validation on a highly coupled legacy system.
+Observed Outcome: Unmapped dependencies cause cascading failures when components are extracted or rewritten.
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: When automated tools miss undocumented dependencies, teams may execute rewrites based on incomplete maps, leading directly to interdependency derailment.
+Standardized Relationship Entry: IF tool-only discovery misses undocumented dependencies THEN unanticipated interdependency derailment during a full rewrite is highly likely.
+
+Relationship ID: Rel237
+Source Risk ID: R12 (Project Failure due to Poor Planning)
+Target Risk ID: R4 (Cost Overrun)
+Relationship Type: Triggers
+Influence Strength: High
+Applicability Conditions: Modernization projects initiated without a detailed roadmap or complexity analysis.
+Observed Outcome: Hidden complexities emerge mid-project, leading to severe budget extensions.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Poor upfront planning directly leads to underestimated complexity, which is the primary driver of massive cost overruns.
+Standardized Relationship Entry: IF project planning and upfront risk analysis are poor THEN massive cost overruns are triggered mid-execution.
+
+Relationship ID: Rel238
+Source Risk ID: R164 (Modernization Amplifies Data and Integration Silos)
+Target Risk ID: R64 (Data Coupling from Central Shared Database)
+Relationship Type: Amplifies
+Influence Strength: Medium
+Applicability Conditions: Microservices migration where data integration and boundaries are not prioritized.
+Observed Outcome: The modernization initiative inadvertently stacks data silos and forces microservices to rely on shared central databases to function.
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Amplifying integration silos directly forces architects into anti-patterns like using a single shared database for multiple decoupled microservices.
+Standardized Relationship Entry: IF modernization amplifies data and integration silos THEN data coupling from central shared databases is amplified.
+
+Relationship ID: Rel247
+Source Risk ID: R3 (Time Overrun)
+Target Risk ID: R4 (Cost Overrun)
+Relationship Type: Triggers
+Influence Strength: High
+Secondary Risk Created: None.
+Applicability Conditions: In long-term modernization projects.
+Observed Outcome: Project pressure leads to cost cutting and budget overruns.
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: When time constraints (R3) become unmanageable, shortcuts are taken that often lead to unforeseen rework costs (R4).
+Standardized Relationship Entry: IF time overrun risk materializes THEN the pressure to finish often triggers cost overruns.
+
+Relationship ID: Rel248
+Source Risk ID: R8 (Transfer of Legacy Flaws)
+Target Risk ID: R1 (Incomplete or Erroneous Data Migration)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: None.
+Applicability Conditions: During technical migration.
+Observed Outcome: Flawed logic in the legacy system gets embedded in the migrated database.
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: If data is migrated without cleaning or understanding the legacy structure, existing flaws are imported into the new system.
+Standardized Relationship Entry: IF transfer of legacy flaws is not mitigated THEN the migrated data environment remains unstable, worsening R1.
+
+Relationship ID: Rel252
+Source Risk ID: R1 (Incomplete or Erroneous Data Migration)
+Target Risk ID: R4 (Cost Overrun)
+Relationship Type: Triggers
+Influence Strength: High
+Secondary Risk Created: Escalation of project costs.
+Applicability Conditions: High data complexity.
+Observed Outcome: If data migration fails (R1), emergency patches and manual correction efforts are required, leading to budget overrun (R4).
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Data migration errors are rarely "free" to fix; they inevitably require additional development and testing cycles, which hit the project budget.
+Standardized Relationship Entry: IF incomplete data migration (R1) occurs THEN the subsequent need for manual rework triggers budget overruns (R4).
+
+Relationship ID: Rel253
+Source Risk ID: R165 (Emotional Debt Blocks Modernization Trust)
+Target Risk ID: R8 (Transfer of Legacy Flaws)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Accumulation of technical debt.
+Applicability Conditions: Low trust environments.
+Observed Outcome: Because teams are cynical (R165) and fail to report technical issues, critical legacy flaws are ignored and migrated into the new system (R8).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Emotional debt creates a "don't ask, don't tell" culture, which hides technical risks that should have been addressed before the migration.
+Standardized Relationship Entry: IF emotional debt (R165) suppresses open communication THEN the risk of transferring unmitigated legacy flaws (R8) increases.
+
+Relationship ID: Rel254
+Source Risk ID: R3 (Time Overrun)
+Target Risk ID: R15 (Semantic Impedance Mismatch)
+Relationship Type: Triggers
+Influence Strength: High
+Secondary Risk Created: Poor system performance.
+Applicability Conditions: When deadlines are forced.
+Observed Outcome: Rushed development (R3) leads to lack of performance testing, causing the modernized system to fail under production loads (R15).
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: Time pressure almost always sacrifices non-functional testing, directly causing performance bottlenecks.
+Standardized Relationship Entry: IF modernization project deadlines are overextended (R3) THEN performance testing is often skipped, triggering system instability (R15).
+
+Relationship ID: Rel255
+Target Risk ID: R29 (Data Synchronization Failure Between Legacy and Modernized Systems)
+Source Risk ID: R1 (Incomplete or Erroneous Data Migration)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Data corruption.
+Applicability Conditions: Lack of stakeholder involvement.
+Observed Outcome: If business requirements are misunderstood (R29), the migration mapping logic is flawed, leading to data errors (R1).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Misaligned business requirements (R29) lead to a misunderstanding of what the data actually represents, which is the root cause of many migration failures (R1).
+Standardized Relationship Entry: IF business requirements are misunderstood (R29) THEN the resulting mapping errors trigger faulty data migration (R1).
+
+Relationship ID: Rel256
+Target Risk ID: R3 (Time Overrun)
+Source Risk ID: R2 (Scarcity of Experts and Documentation)
+Relationship Type: Triggers
+Influence Strength: High
+Secondary Risk Created: Project schedule failure.
+Applicability Conditions: When expert turnover (R2) impacts the critical path of the project.
+Observed Outcome: Loss of knowledge (R2) makes it impossible to meet original project deadlines (R3).
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: Scarcity of expertise directly prevents the timely execution of tasks required by the project plan.
+Standardized Relationship Entry: The loss of experts and documentation (R2) directly triggers significant project delays and time overruns (R3).
+
+Relationship ID: Rel257
+Target Risk ID: R4 (Cost Overrun)
+Source Risk ID: R12 (Project Failure due to Poor Planning)
+Relationship Type: Triggers
+Influence Strength: High
+Secondary Risk Created: Budget exhaustion.
+Applicability Conditions: Poor planning (R12) precedes budget allocation.
+Observed Outcome: Without systematic planning (R12), hidden complexities are not accounted for, leading to massive cost overruns (R4).
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: R12 identifies the root cause (poor planning) of R4 (financial waste).
+Standardized Relationship Entry: Inadequate project planning (R12) causes underestimation of complexity, which triggers significant cost overruns (R4).
+
+Relationship ID: Rel258
+Target Risk ID: R10 (Post-Modernization Performance Degradation)
+Source Risk ID: R1 (Incomplete or Erroneous Data Migration)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Performance bottlenecks.
+Applicability Conditions: When data migration (R1) involves re-platforming to environments with lower performance characteristics.
+Observed Outcome: Errors in data migration or the platform transition (R1) result in degraded system responsiveness (R10).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Technical migration errors (R1) often manifest as performance issues (R10) post-cutover.
+Standardized Relationship Entry: Erroneous data migration (R1) can lead to sub-optimal system performance and latency (R10) post-modernization.
+
+Relationship ID: Rel259
+Target Risk ID: R5 (Cultural and Staff Resistance)
+Source Risk ID: R9 (User Resistance)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Project sabotage.
+Applicability Conditions: Widespread user resistance (R9) spreads to IT staff.
+Observed Outcome: Initial resistance to new UI/UX (R9) grows into a general culture of resistance and project rejection (R5).
+Evidence Type: Statistical
+Confidence Level: Medium
+Reasoning Notes: Resistance often starts with users and cascades into organizational-wide opposition.
+Standardized Relationship Entry: Specific user resistance (R9) can cascade into broader cultural and staff resistance (R5) throughout the organization.
+
+Relationship ID: Rel260
+Target Risk ID: R15 (Semantic Impedance Mismatch)
+Source Risk ID: R62 (Incomplete Legacy Understanding Before Migration)
+Relationship Type: Triggers
+Influence Strength: High
+Secondary Risk Created: Logic error.
+Applicability Conditions: Lack of legacy understanding (R62) before re-engineering.
+Observed Outcome: Without deep understanding (R62), semantic mapping (R15) becomes based on false assumptions, leading to logic failures.
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: Understanding the source is a prerequisite for successful mapping to new targets.
+Standardized Relationship Entry: Incomplete legacy understanding (R62) prevents accurate mapping of procedural semantics, directly triggering semantic impedance mismatches (R15).
+
+Relationship ID: Rel261
+Target Risk ID: R22 (Security Breach During Modernization)
+Source Risk ID: R132 (Unsupported or deprecated components become migration blockers)
+Relationship Type: Triggers
+Influence Strength: High
+Secondary Risk Created: Security breach.
+Applicability Conditions: When migrating to cloud environments (R132) without remediating unsupported components.
+Observed Outcome: Running legacy components (R132) on modern cloud infrastructures creates vulnerabilities that lead to security breaches (R22).
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: Technical debt (R132) exposes the new environment to modern attack vectors (R22).
+Standardized Relationship Entry: The presence of unsupported components (R132) during migration creates exploitable vulnerabilities, leading to security breaches (R22).
+
+Relationship ID: Rel262
+Target Risk ID: R28 (Repeated Database Restructuring)
+Source Risk ID: R30 (Big-Bang Migration Emergence)
+Relationship Type: Triggers
+Influence Strength: High
+Secondary Risk Created: Data corruption.
+Applicability Conditions: Big-bang attempts (R30) during incremental environments.
+Observed Outcome: The uncontrolled complexity of big-bang migration (R30) forces rapid, repeated restructuring of databases (R28) to compensate for integration errors.
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: Big-bang approaches (R30) often fail to get the data structure right on the first try, requiring rework (R28).
+Standardized Relationship Entry: Big-bang migration efforts (R30) often result in rushed architectural decisions, forcing repeated and costly database restructuring (R28).
+
+Relationship ID: Rel338
+Target Risk ID: R1 (Incomplete or Erroneous Data Migration)
+Source Risk ID: R2 (Scarcity of Experts and Documentation)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Incomplete or Erroneous Data Migration
+Applicability Conditions: Leaving of a former architect
+Observed Outcome: When Scarcity of Experts and Documentation (R2) occurs, it can cascade into Incomplete or Erroneous Data Migration (R1) because Execution of the cut-over or data ETL (Extract, Transform, Load) phase.
+Evidence Type: Statistical / Expert Opinion
+Confidence Level: Medium-High
+Reasoning Notes: Scarcity of Experts and Documentation (R2) produces the consequence(s) 'Project delays, inability to understand business logic, increased risk of system failure during modernization.', which aligns with the root cause of Incomplete or Erroneous Data Migration (R1): Use of obsolete database models that do not support modern relational structures..
+Standardized Relationship Entry: IF Scarcity of Experts and Documentation (R2) materializes THEN it can trigger or worsen Incomplete or Erroneous Data Migration (R1).
+
+Relationship ID: Rel339
+Target Risk ID: R3 (Time Overrun)
+Source Risk ID: R5 (Cultural and Staff Resistance)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Time Overrun
+Applicability Conditions: Trust in legacy system
+Observed Outcome: When Cultural and Staff Resistance (R5) occurs, it can cascade into Time Overrun (R3) because Execution of long-running modernization projects.
+Evidence Type: Statistical
+Confidence Level: High
+Reasoning Notes: Cultural and Staff Resistance (R5) produces the consequence(s) 'Project sabotage, slow adoption, failure to realize business benefits.', which aligns with the root cause of Time Overrun (R3): Scarcity of experts, lack of resources, changing requests during long-term projects.
+Standardized Relationship Entry: IF Cultural and Staff Resistance (R5) materializes THEN it can trigger or worsen Time Overrun (R3).
+
+Relationship ID: Rel340
+Target Risk ID: R9 (User Resistance)
+Source Risk ID: R10 (Post-Modernization Performance Degradation)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: User Resistance
+Applicability Conditions: Migration from highly optimized mainframe environments to distributed systems
+Observed Outcome: When Post-Modernization Performance Degradation (R10) occurs, it can cascade into User Resistance (R9) because Deployment of the new graphical user interface.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Post-Modernization Performance Degradation (R10) produces the consequence(s) 'Slower response times; failure to meet original performance expectations.', which aligns with the root cause of User Resistance (R9): Users are optimized for specific workflows and do not want to change.
+Standardized Relationship Entry: IF Post-Modernization Performance Degradation (R10) materializes THEN it can trigger or worsen User Resistance (R9).
+
+Relationship ID: Rel341
+Target Risk ID: R3 (Time Overrun)
+Source Risk ID: R12 (Project Failure due to Poor Planning)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Time Overrun
+Applicability Conditions: Applies particularly to large-scale enterprise modernization
+Observed Outcome: When Project Failure due to Poor Planning (R12) occurs, it can cascade into Time Overrun (R3) because Execution of long-running modernization projects.
+Evidence Type: Case Study / Expert Opinion
+Confidence Level: Medium-High
+Reasoning Notes: Project Failure due to Poor Planning (R12) produces the consequence(s) 'Project failure, lost investment, business disruption.', which aligns with the root cause of Time Overrun (R3): Scarcity of experts, lack of resources, changing requests during long-term projects.
+Standardized Relationship Entry: IF Project Failure due to Poor Planning (R12) materializes THEN it can trigger or worsen Time Overrun (R3).
+
+Relationship ID: Rel342
+Target Risk ID: R4 (Cost Overrun)
+Source Risk ID: R16 (Lack of Legacy System Disposition Strategy)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Cost Overrun
+Applicability Conditions: Not specified
+Observed Outcome: When Lack of Legacy System Disposition Strategy (R16) occurs, it can cascade into Cost Overrun (R4) because Lack of insight into required migration budget and legacy system complexity.
+Evidence Type: Case Study / Audit
+Confidence Level: High
+Reasoning Notes: Lack of Legacy System Disposition Strategy (R16) produces the consequence(s) 'Continued O&M costs for the old system (dual-running costs), data inconsistency.', which aligns with the root cause of Cost Overrun (R4): Underestimating complexity and hidden costs (e.g., service wrapping vs. subsequent replacement)..
+Standardized Relationship Entry: IF Lack of Legacy System Disposition Strategy (R16) materializes THEN it can trigger or worsen Cost Overrun (R4).
+
+Relationship ID: Rel343
+Target Risk ID: R52 (Premature or Unsafe Legacy System Retirement)
+Source Risk ID: R46 (Business process and dependency validation risk)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Premature or Unsafe Legacy System Retirement
+Applicability Conditions: Systems with cross-system business workflows.
+Observed Outcome: When Business process and dependency validation risk (R46) occurs, it can cascade into Premature or Unsafe Legacy System Retirement (R52) because Access to the legacy system is discontinued too early or without safeguards.
+Evidence Type: Statistical
+Confidence Level: High
+Reasoning Notes: Business process and dependency validation risk (R46) produces the consequence(s) 'Post-implementation defects, workflow breakage, data inconsistency, and user experience issues.', which aligns with the root cause of Premature or Unsafe Legacy System Retirement (R52): Abrupt discontinuation; lack of training; missing backup for future reference..
+Standardized Relationship Entry: IF Business process and dependency validation risk (R46) materializes THEN it can trigger or worsen Premature or Unsafe Legacy System Retirement (R52).
+
+Relationship ID: Rel344
+Target Risk ID: R54 (Servicing Patches Accelerate Architecture Deterioration)
+Source Risk ID: R46 (Business process and dependency validation risk)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Servicing Patches Accelerate Architecture Deterioration
+Applicability Conditions: Systems with cross-system business workflows.
+Observed Outcome: When Business process and dependency validation risk (R46) occurs, it can cascade into Servicing Patches Accelerate Architecture Deterioration (R54) because A tactical patch or wrapper is applied.
+Evidence Type: Statistical
+Confidence Level: High
+Reasoning Notes: Business process and dependency validation risk (R46) produces the consequence(s) 'Post-implementation defects, workflow breakage, data inconsistency, and user experience issues.', which aligns with the root cause of Servicing Patches Accelerate Architecture Deterioration (R54): Architecture coherence has already degraded and available knowledge is limited..
+Standardized Relationship Entry: IF Business process and dependency validation risk (R46) materializes THEN it can trigger or worsen Servicing Patches Accelerate Architecture Deterioration (R54).
+
+Relationship ID: Rel345
+Target Risk ID: R58 (Component Upgrade Introduces Incompatibility or Defects)
+Source Risk ID: R47 (Data classification and mapping complexity)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Component Upgrade Introduces Incompatibility or Defects
+Applicability Conditions: Large financial data estates.
+Observed Outcome: When Data classification and mapping complexity (R47) occurs, it can cascade into Component Upgrade Introduces Incompatibility or Defects (R58) because A new component version is introduced.
+Evidence Type: Statistical / Expert Opinion
+Confidence Level: Medium-High
+Reasoning Notes: Data classification and mapping complexity (R47) produces the consequence(s) 'Migration complexity, timeline deviation, incorrect mappings, and governance issues.', which aligns with the root cause of Component Upgrade Introduces Incompatibility or Defects (R58): Software components are not defect-free and version compatibility is uncertain..
+Standardized Relationship Entry: IF Data classification and mapping complexity (R47) materializes THEN it can trigger or worsen Component Upgrade Introduces Incompatibility or Defects (R58).
+
+Relationship ID: Rel346
+Target Risk ID: R60 (Misaligned Modernization Strategy Selection)
+Source Risk ID: R47 (Data classification and mapping complexity)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Misaligned Modernization Strategy Selection
+Applicability Conditions: Large financial data estates.
+Observed Outcome: When Data classification and mapping complexity (R47) occurs, it can cascade into Misaligned Modernization Strategy Selection (R60) because The organization decides how to conduct modernization without a well-defined process, strategies, practices, and management recommendations.
+Evidence Type: Statistical / Expert Opinion
+Confidence Level: Medium-High
+Reasoning Notes: Data classification and mapping complexity (R47) produces the consequence(s) 'Migration complexity, timeline deviation, incorrect mappings, and governance issues.', which aligns with the root cause of Misaligned Modernization Strategy Selection (R60): Modernization projects must align business, organizational, and technical perspectives and require decisions about whether to maintain, modernize, or replace..
+Standardized Relationship Entry: IF Data classification and mapping complexity (R47) materializes THEN it can trigger or worsen Misaligned Modernization Strategy Selection (R60).
+
+Relationship ID: Rel347
+Target Risk ID: R58 (Component Upgrade Introduces Incompatibility or Defects)
+Source Risk ID: R48 (Data quality defect propagation)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Component Upgrade Introduces Incompatibility or Defects
+Applicability Conditions: Banking-sector data migration initiatives.
+Observed Outcome: When Data quality defect propagation (R48) occurs, it can cascade into Component Upgrade Introduces Incompatibility or Defects (R58) because A new component version is introduced.
+Evidence Type: Statistical / Case Study
+Confidence Level: High
+Reasoning Notes: Data quality defect propagation (R48) produces the consequence(s) 'Incomplete or inconsistent data in the modern system, reduced migration success, and operational defects.', which aligns with the root cause of Component Upgrade Introduces Incompatibility or Defects (R58): Software components are not defect-free and version compatibility is uncertain..
+Standardized Relationship Entry: IF Data quality defect propagation (R48) materializes THEN it can trigger or worsen Component Upgrade Introduces Incompatibility or Defects (R58).
+
+Relationship ID: Rel348
+Target Risk ID: R59 (Upgrade Sequence Compatibility Risk)
+Source Risk ID: R48 (Data quality defect propagation)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Upgrade Sequence Compatibility Risk
+Applicability Conditions: Banking-sector data migration initiatives.
+Observed Outcome: When Data quality defect propagation (R48) occurs, it can cascade into Upgrade Sequence Compatibility Risk (R59) because Service packs or upgrades are issued across a large user base.
+Evidence Type: Statistical / Case Study
+Confidence Level: High
+Reasoning Notes: Data quality defect propagation (R48) produces the consequence(s) 'Incomplete or inconsistent data in the modern system, reduced migration success, and operational defects.', which aligns with the root cause of Upgrade Sequence Compatibility Risk (R59): Users may not receive or apply small increments; installed versions differ..
+Standardized Relationship Entry: IF Data quality defect propagation (R48) materializes THEN it can trigger or worsen Upgrade Sequence Compatibility Risk (R59).
+
+Relationship ID: Rel349
+Target Risk ID: R72 (Single-Prompt LLM Modernization Failure)
+Source Risk ID: R71 (Behavioral Semantics Loss During Translation)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Single-Prompt LLM Modernization Failure
+Applicability Conditions: Applies when modernization focuses on code translation rather than preservation of behavioral contracts.
+Observed Outcome: When Behavioral Semantics Loss During Translation (R71) occurs, it can cascade into Single-Prompt LLM Modernization Failure (R72) because A team asks an LLM to convert a legacy artifact directly into a modern API or service.
+Evidence Type: Case Study / Expert Opinion
+Confidence Level: Medium-High
+Reasoning Notes: Behavioral Semantics Loss During Translation (R71) produces the consequence(s) 'Silent production failures, altered validation logic, broken business rules, and a modern system that behaves differently from the original.', which aligns with the root cause of Single-Prompt LLM Modernization Failure (R72): Single-pass prompting lacks intermediate representation, verification, and feedback mechanisms..
+Standardized Relationship Entry: IF Behavioral Semantics Loss During Translation (R71) materializes THEN it can trigger or worsen Single-Prompt LLM Modernization Failure (R72).
+
+Relationship ID: Rel350
+Target Risk ID: R73 (Multi-Step Workflow Orchestration Failure)
+Source Risk ID: R71 (Behavioral Semantics Loss During Translation)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Multi-Step Workflow Orchestration Failure
+Applicability Conditions: Applies when modernization focuses on code translation rather than preservation of behavioral contracts.
+Observed Outcome: When Behavioral Semantics Loss During Translation (R71) occurs, it can cascade into Multi-Step Workflow Orchestration Failure (R73) because A workflow with dependent validation stages is transformed into separate modern functions without correct orchestration.
+Evidence Type: Case Study / Expert Opinion
+Confidence Level: Medium-High
+Reasoning Notes: Behavioral Semantics Loss During Translation (R71) produces the consequence(s) 'Silent production failures, altered validation logic, broken business rules, and a modern system that behaves differently from the original.', which aligns with the root cause of Multi-Step Workflow Orchestration Failure (R73): Complex modernization scenarios require preservation of control flow and data dependencies across multiple steps..
+Standardized Relationship Entry: IF Behavioral Semantics Loss During Translation (R71) materializes THEN it can trigger or worsen Multi-Step Workflow Orchestration Failure (R73).
+
+Relationship ID: Rel351
+Target Risk ID: R71 (Behavioral Semantics Loss During Translation)
+Source Risk ID: R72 (Single-Prompt LLM Modernization Failure)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Behavioral Semantics Loss During Translation
+Applicability Conditions: Applies to single-prompt or monolithic LLM modernization workflows.
+Observed Outcome: When Single-Prompt LLM Modernization Failure (R72) occurs, it can cascade into Behavioral Semantics Loss During Translation (R71) because A legacy artifact is translated directly into a modern implementation without an explicit behavioral specification.
+Evidence Type: Statistical / Case Study
+Confidence Level: High
+Reasoning Notes: Single-Prompt LLM Modernization Failure (R72) produces the consequence(s) 'Generated code may compile but fail behavioral tests and preserve no gold-standard business rules.', which aligns with the root cause of Behavioral Semantics Loss During Translation (R71): Business behavior is embedded in control flow, conditions, exception handlers, and configuration rather than explicit documentation..
+Standardized Relationship Entry: IF Single-Prompt LLM Modernization Failure (R72) materializes THEN it can trigger or worsen Behavioral Semantics Loss During Translation (R71).
+
+Relationship ID: Rel352
+Target Risk ID: R71 (Behavioral Semantics Loss During Translation)
+Source Risk ID: R73 (Multi-Step Workflow Orchestration Failure)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Behavioral Semantics Loss During Translation
+Applicability Conditions: Especially relevant for multi-step validation, provisioning, migration, and rollback workflows.
+Observed Outcome: When Multi-Step Workflow Orchestration Failure (R73) occurs, it can cascade into Behavioral Semantics Loss During Translation (R71) because A legacy artifact is translated directly into a modern implementation without an explicit behavioral specification.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Multi-Step Workflow Orchestration Failure (R73) produces the consequence(s) 'End-to-end workflows fail even if individual rules appear implemented.', which aligns with the root cause of Behavioral Semantics Loss During Translation (R71): Business behavior is embedded in control flow, conditions, exception handlers, and configuration rather than explicit documentation..
+Standardized Relationship Entry: IF Multi-Step Workflow Orchestration Failure (R73) materializes THEN it can trigger or worsen Behavioral Semantics Loss During Translation (R71).
+
+Relationship ID: Rel353
+Target Risk ID: R80 (Short-schedule exposure to high-risk items)
+Source Risk ID: R79 (Immature event-handling technology for alert service)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Short-schedule exposure to high-risk items
+Applicability Conditions: Specific to event-based services such as SetTaskAlert in the MSS migration case.
+Observed Outcome: When Immature event-handling technology for alert service (R79) occurs, it can cascade into Short-schedule exposure to high-risk items (R80) because Including high-risk services or features in a short-term feasibility demonstration.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Immature event-handling technology for alert service (R79) produces the consequence(s) 'Unjustifiable technical risk for the pilot, possible implementation failure, and schedule pressure.', which aligns with the root cause of Short-schedule exposure to high-risk items (R80): The organization has a short schedule for completing the initial demonstration..
+Standardized Relationship Entry: IF Immature event-handling technology for alert service (R79) materializes THEN it can trigger or worsen Short-schedule exposure to high-risk items (R80).
+
+Relationship ID: Rel354
+Target Risk ID: R79 (Immature event-handling technology for alert service)
+Source Risk ID: R80 (Short-schedule exposure to high-risk items)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Immature event-handling technology for alert service
+Applicability Conditions: Applies to pilot migrations with fixed short timelines.
+Observed Outcome: When Short-schedule exposure to high-risk items (R80) occurs, it can cascade into Immature event-handling technology for alert service (R79) because Choosing to implement an alert/event-based service as part of the pilot migration.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Short-schedule exposure to high-risk items (R80) produces the consequence(s) 'Schedule overrun, failed demonstration, or insufficient time to resolve technical uncertainty.', which aligns with the root cause of Immature event-handling technology for alert service (R79): Required SOA event-handling capability is immature or newly introduced..
+Standardized Relationship Entry: IF Short-schedule exposure to high-risk items (R80) materializes THEN it can trigger or worsen Immature event-handling technology for alert service (R79).
+
+Relationship ID: Rel355
+Target Risk ID: R92 (Product gaps and scattered functionality in target design)
+Source Risk ID: R90 (Uncontrolled handling of migration changes)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Product gaps and scattered functionality in target design
+Applicability Conditions: Large-scale migration with business-priority thresholds and architectural governance needs.
+Observed Outcome: When Uncontrolled handling of migration changes (R90) occurs, it can cascade into Product gaps and scattered functionality in target design (R92) because Mapping or designing target components without consolidating related features.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Uncontrolled handling of migration changes (R90) produces the consequence(s) 'Misaligned decisions, delayed migration, unmanaged cost escalation, architectural inconsistency.', which aligns with the root cause of Product gaps and scattered functionality in target design (R92): Business features are distributed across multiple legacy subsystems and have functional dependencies..
+Standardized Relationship Entry: IF Uncontrolled handling of migration changes (R90) materializes THEN it can trigger or worsen Product gaps and scattered functionality in target design (R92).
+
+Relationship ID: Rel356
+Target Risk ID: R95 (Migration Reversal Risk)
+Source Risk ID: R92 (Product gaps and scattered functionality in target design)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Migration Reversal Risk
+Applicability Conditions: Payments-domain SOA migration with scattered features such as interest calculation and product agreements.
+Observed Outcome: When Product gaps and scattered functionality in target design (R92) occurs, it can cascade into Migration Reversal Risk (R95) because Migration to a new architecture.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Product gaps and scattered functionality in target design (R92) produces the consequence(s) 'Product gaps, difficult architecture governance, duplicated or inconsistent functionality in the modernized system.', which aligns with the root cause of Migration Reversal Risk (R95): Adoption of architectures without sufficient evaluation..
+Standardized Relationship Entry: IF Product gaps and scattered functionality in target design (R92) materializes THEN it can trigger or worsen Migration Reversal Risk (R95).
+
+Relationship ID: Rel357
+Target Risk ID: R90 (Uncontrolled handling of migration changes)
+Source Risk ID: R93 (Outsourcing unsuitable features or partners)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Uncontrolled handling of migration changes
+Applicability Conditions: Low-business-value features that can be developed cheaply, such as card authorization and card payments.
+Observed Outcome: When Outsourcing unsuitable features or partners (R93) occurs, it can cascade into Uncontrolled handling of migration changes (R90) because A Request For Change appears during migration.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Outsourcing unsuitable features or partners (R93) produces the consequence(s) 'Misalignment with strategic objectives, reduced control, inappropriate allocation of migration work.', which aligns with the root cause of Uncontrolled handling of migration changes (R90): The migration process contains many dependencies and changing business/architecture priorities..
+Standardized Relationship Entry: IF Outsourcing unsuitable features or partners (R93) materializes THEN it can trigger or worsen Uncontrolled handling of migration changes (R90).
+
+Relationship ID: Rel358
+Target Risk ID: R92 (Product gaps and scattered functionality in target design)
+Source Risk ID: R93 (Outsourcing unsuitable features or partners)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Product gaps and scattered functionality in target design
+Applicability Conditions: Low-business-value features that can be developed cheaply, such as card authorization and card payments.
+Observed Outcome: When Outsourcing unsuitable features or partners (R93) occurs, it can cascade into Product gaps and scattered functionality in target design (R92) because Mapping or designing target components without consolidating related features.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Outsourcing unsuitable features or partners (R93) produces the consequence(s) 'Misalignment with strategic objectives, reduced control, inappropriate allocation of migration work.', which aligns with the root cause of Product gaps and scattered functionality in target design (R92): Business features are distributed across multiple legacy subsystems and have functional dependencies..
+Standardized Relationship Entry: IF Outsourcing unsuitable features or partners (R93) materializes THEN it can trigger or worsen Product gaps and scattered functionality in target design (R92).
+
+Relationship ID: Rel359
+Target Risk ID: R95 (Migration Reversal Risk)
+Source Risk ID: R94 (Knowledge erosion during migration)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Migration Reversal Risk
+Applicability Conditions: Long-lived legacy subsystems with scarce skills and incomplete documentation.
+Observed Outcome: When Knowledge erosion during migration (R94) occurs, it can cascade into Migration Reversal Risk (R95) because Migration to a new architecture.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Knowledge erosion during migration (R94) produces the consequence(s) 'Loss of system understanding, incomplete inventories, weaker migration decisions.', which aligns with the root cause of Migration Reversal Risk (R95): Adoption of architectures without sufficient evaluation..
+Standardized Relationship Entry: IF Knowledge erosion during migration (R94) materializes THEN it can trigger or worsen Migration Reversal Risk (R95).
+
+Relationship ID: Rel360
+Target Risk ID: R100 (Unrealistic cost and schedule estimates)
+Source Risk ID: R94 (Knowledge erosion during migration)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Unrealistic cost and schedule estimates
+Applicability Conditions: Long-lived legacy subsystems with scarce skills and incomplete documentation.
+Observed Outcome: When Knowledge erosion during migration (R94) occurs, it can cascade into Unrealistic cost and schedule estimates (R100) because Cost and timeline planning is performed without detailed assessment.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Knowledge erosion during migration (R94) produces the consequence(s) 'Loss of system understanding, incomplete inventories, weaker migration decisions.', which aligns with the root cause of Unrealistic cost and schedule estimates (R100): Insufficient current-state assessment and baseline understanding..
+Standardized Relationship Entry: IF Knowledge erosion during migration (R94) materializes THEN it can trigger or worsen Unrealistic cost and schedule estimates (R100).
+
+Relationship ID: Rel361
+Target Risk ID: R111 (Unvalidated AI-generated engineering output propagation)
+Source Risk ID: R110 (Governance deficit in modernization execution)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Unvalidated AI-generated engineering output propagation
+Applicability Conditions: Applies to complex enterprise modernization across migrations, data platforms, AI automation, and mission-critical systems.
+Observed Outcome: When Governance deficit in modernization execution (R110) occurs, it can cascade into Unvalidated AI-generated engineering output propagation (R111) because AI-generated outputs are integrated into engineering pipelines without mandatory human review or acceptance criteria.
+Evidence Type: Expert Opinion / Case Study
+Confidence Level: Medium-High
+Reasoning Notes: Governance deficit in modernization execution (R110) produces the consequence(s) 'Costly modernization failure, uncontrolled execution, waste, schedule variance, and unsafe propagation of failure modes into production.', which aligns with the root cause of Unvalidated AI-generated engineering output propagation (R111): Lack of validation and controlled governance for GenAI-assisted engineering outputs..
+Standardized Relationship Entry: IF Governance deficit in modernization execution (R110) materializes THEN it can trigger or worsen Unvalidated AI-generated engineering output propagation (R111).
+
+Relationship ID: Rel362
+Target Risk ID: R112 (AI-related privacy and ethical exposure)
+Source Risk ID: R111 (Unvalidated AI-generated engineering output propagation)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: AI-related privacy and ethical exposure
+Applicability Conditions: Applies when GenAI tools are used for code, tests, synthetic data, or automation in modernization.
+Observed Outcome: When Unvalidated AI-generated engineering output propagation (R111) occurs, it can cascade into AI-related privacy and ethical exposure (R112) because AI systems are deployed or used in data-intensive modernization workflows without adequate audit trails.
+Evidence Type: Expert Opinion / Case Study
+Confidence Level: Medium-High
+Reasoning Notes: Unvalidated AI-generated engineering output propagation (R111) produces the consequence(s) 'Defective AI-generated outputs may enter modernization artifacts or production systems.', which aligns with the root cause of AI-related privacy and ethical exposure (R112): Privacy and ethical exposure from unvalidated AI systems and insufficient auditability..
+Standardized Relationship Entry: IF Unvalidated AI-generated engineering output propagation (R111) materializes THEN it can trigger or worsen AI-related privacy and ethical exposure (R112).
+
+Relationship ID: Rel363
+Target Risk ID: R113 (Uncontrolled AI capability change)
+Source Risk ID: R111 (Unvalidated AI-generated engineering output propagation)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Uncontrolled AI capability change
+Applicability Conditions: Applies when GenAI tools are used for code, tests, synthetic data, or automation in modernization.
+Observed Outcome: When Unvalidated AI-generated engineering output propagation (R111) occurs, it can cascade into Uncontrolled AI capability change (R113) because AI tools or models are updated without governance processes.
+Evidence Type: Expert Opinion / Case Study
+Confidence Level: Medium-High
+Reasoning Notes: Unvalidated AI-generated engineering output propagation (R111) produces the consequence(s) 'Defective AI-generated outputs may enter modernization artifacts or production systems.', which aligns with the root cause of Uncontrolled AI capability change (R113): Missing controlled update gates for AI tools, models, and automation frameworks..
+Standardized Relationship Entry: IF Unvalidated AI-generated engineering output propagation (R111) materializes THEN it can trigger or worsen Uncontrolled AI capability change (R113).
+
+Relationship ID: Rel364
+Target Risk ID: R120 (Partner-Built Software Cannot Be Used)
+Source Risk ID: R117 (SAP modernization path does not fit mission-critical workload requirements)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Partner-Built Software Cannot Be Used
+Applicability Conditions: SAP workloads modernized on AWS
+Observed Outcome: When SAP modernization path does not fit mission-critical workload requirements (R117) occurs, it can cascade into Partner-Built Software Cannot Be Used (R120) because External partners lead or execute modernization without internal guidance.
+Evidence Type: Expert Opinion / Statistical
+Confidence Level: Medium-High
+Reasoning Notes: SAP modernization path does not fit mission-critical workload requirements (R117) produces the consequence(s) 'Modernization may not cut costs, increase agility, or deliver transformational business value', which aligns with the root cause of Partner-Built Software Cannot Be Used (R120): Missing internal ownership, missing domain knowledge, and insufficient communication of enterprise constraints.
+Standardized Relationship Entry: IF SAP modernization path does not fit mission-critical workload requirements (R117) materializes THEN it can trigger or worsen Partner-Built Software Cannot Be Used (R120).
+
+Relationship ID: Rel365
+Target Risk ID: R121 (External Partner Context-Learning Overhead)
+Source Risk ID: R117 (SAP modernization path does not fit mission-critical workload requirements)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: External Partner Context-Learning Overhead
+Applicability Conditions: SAP workloads modernized on AWS
+Observed Outcome: When SAP modernization path does not fit mission-critical workload requirements (R117) occurs, it can cascade into External Partner Context-Learning Overhead (R121) because Partners begin modernization without enough internal context transfer.
+Evidence Type: Expert Opinion / Statistical
+Confidence Level: Medium-High
+Reasoning Notes: SAP modernization path does not fit mission-critical workload requirements (R117) produces the consequence(s) 'Modernization may not cut costs, increase agility, or deliver transformational business value', which aligns with the root cause of External Partner Context-Learning Overhead (R121): Insufficient partner understanding of portfolio, domain knowledge, and working practices.
+Standardized Relationship Entry: IF SAP modernization path does not fit mission-critical workload requirements (R117) materializes THEN it can trigger or worsen External Partner Context-Learning Overhead (R121).
+
+Relationship ID: Rel366
+Target Risk ID: R123 (Rehosted technical debt and unresolved issues)
+Source Risk ID: R117 (SAP modernization path does not fit mission-critical workload requirements)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Rehosted technical debt and unresolved issues
+Applicability Conditions: SAP workloads modernized on AWS
+Observed Outcome: When SAP modernization path does not fit mission-critical workload requirements (R117) occurs, it can cascade into Rehosted technical debt and unresolved issues (R123) because A problematic workload is moved to Azure with minimal changes.
+Evidence Type: Expert Opinion / Statistical
+Confidence Level: Medium-High
+Reasoning Notes: SAP modernization path does not fit mission-critical workload requirements (R117) produces the consequence(s) 'Modernization may not cut costs, increase agility, or deliver transformational business value', which aligns with the root cause of Rehosted technical debt and unresolved issues (R123): Like-for-like migration is applied to a workload whose root causes require modernization..
+Standardized Relationship Entry: IF SAP modernization path does not fit mission-critical workload requirements (R117) materializes THEN it can trigger or worsen Rehosted technical debt and unresolved issues (R123).
+
+Relationship ID: Rel367
+Target Risk ID: R156 (Increased Opportunity Cost and Reduced Innovation Capacity)
+Source Risk ID: R155 (Forgone Profits from Delayed Modernization)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Increased Opportunity Cost and Reduced Innovation Capacity
+Applicability Conditions: Organizations with legacy applications and substantial IT spending on maintenance or technical debt
+Observed Outcome: When Forgone Profits from Delayed Modernization (R155) occurs, it can cascade into Increased Opportunity Cost and Reduced Innovation Capacity (R156) because Modernization is ignored while AI, cloud technologies, or market expectations change quickly.
+Evidence Type: Statistical; Expert Opinion
+Confidence Level: Medium-High
+Reasoning Notes: Forgone Profits from Delayed Modernization (R155) produces the consequence(s) 'Reduced profits, reduced growth potential, missed market opportunities, and falling behind more agile competitors', which aligns with the root cause of Increased Opportunity Cost and Reduced Innovation Capacity (R156): Lack of flexibility to integrate new technologies or adapt to market demands.
+Standardized Relationship Entry: IF Forgone Profits from Delayed Modernization (R155) materializes THEN it can trigger or worsen Increased Opportunity Cost and Reduced Innovation Capacity (R156).
+
+Relationship ID: Rel368
+Target Risk ID: R155 (Forgone Profits from Delayed Modernization)
+Source Risk ID: R156 (Increased Opportunity Cost and Reduced Innovation Capacity)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Forgone Profits from Delayed Modernization
+Applicability Conditions: Speed-first business environments and markets shaped by AI, cloud, or rapidly changing customer needs
+Observed Outcome: When Increased Opportunity Cost and Reduced Innovation Capacity (R156) occurs, it can cascade into Forgone Profits from Delayed Modernization (R155) because Management decides to postpone modernization or continues funding legacy maintenance over modernization.
+Evidence Type: Statistical; Expert Opinion
+Confidence Level: Medium-High
+Reasoning Notes: Increased Opportunity Cost and Reduced Innovation Capacity (R156) produces the consequence(s) 'Missed innovation opportunities, reduced relevance, inability to launch new offerings, and weaker competitive position', which aligns with the root cause of Forgone Profits from Delayed Modernization (R155): High technical-debt and maintenance spending; budget constraints; postponement of modernization.
+Standardized Relationship Entry: IF Increased Opportunity Cost and Reduced Innovation Capacity (R156) materializes THEN it can trigger or worsen Forgone Profits from Delayed Modernization (R155).
+
+Relationship ID: Rel369
+Target Risk ID: R157 (Customer Exit Due to Delayed Modernization)
+Source Risk ID: R156 (Increased Opportunity Cost and Reduced Innovation Capacity)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Customer Exit Due to Delayed Modernization
+Applicability Conditions: Speed-first business environments and markets shaped by AI, cloud, or rapidly changing customer needs
+Observed Outcome: When Increased Opportunity Cost and Reduced Innovation Capacity (R156) occurs, it can cascade into Customer Exit Due to Delayed Modernization (R157) because Customers encounter delays or errors because outdated systems remain in use.
+Evidence Type: Statistical; Expert Opinion
+Confidence Level: Medium-High
+Reasoning Notes: Increased Opportunity Cost and Reduced Innovation Capacity (R156) produces the consequence(s) 'Missed innovation opportunities, reduced relevance, inability to launch new offerings, and weaker competitive position', which aligns with the root cause of Customer Exit Due to Delayed Modernization (R157): Outdated systems cannot keep pace with evolving customer expectations and create a disjointed experience.
+Standardized Relationship Entry: IF Increased Opportunity Cost and Reduced Innovation Capacity (R156) materializes THEN it can trigger or worsen Customer Exit Due to Delayed Modernization (R157).
+
+Relationship ID: Rel370
+Target Risk ID: R155 (Forgone Profits from Delayed Modernization)
+Source Risk ID: R157 (Customer Exit Due to Delayed Modernization)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Forgone Profits from Delayed Modernization
+Applicability Conditions: Customer-facing systems or processes where outdated technology can create delays, errors, or inconsistent experiences
+Observed Outcome: When Customer Exit Due to Delayed Modernization (R157) occurs, it can cascade into Forgone Profits from Delayed Modernization (R155) because Management decides to postpone modernization or continues funding legacy maintenance over modernization.
+Evidence Type: Statistical; Expert Opinion
+Confidence Level: Medium-High
+Reasoning Notes: Customer Exit Due to Delayed Modernization (R157) produces the consequence(s) 'Customer defection, reduced trust, lower loyalty, and loss of valuable customers', which aligns with the root cause of Forgone Profits from Delayed Modernization (R155): High technical-debt and maintenance spending; budget constraints; postponement of modernization.
+Standardized Relationship Entry: IF Customer Exit Due to Delayed Modernization (R157) materializes THEN it can trigger or worsen Forgone Profits from Delayed Modernization (R155).
+
+Relationship ID: Rel371
+Target Risk ID: R156 (Increased Opportunity Cost and Reduced Innovation Capacity)
+Source Risk ID: R157 (Customer Exit Due to Delayed Modernization)
+Relationship Type: Triggers
+Influence Strength: Medium
+Secondary Risk Created: Increased Opportunity Cost and Reduced Innovation Capacity
+Applicability Conditions: Customer-facing systems or processes where outdated technology can create delays, errors, or inconsistent experiences
+Observed Outcome: When Customer Exit Due to Delayed Modernization (R157) occurs, it can cascade into Increased Opportunity Cost and Reduced Innovation Capacity (R156) because Modernization is ignored while AI, cloud technologies, or market expectations change quickly.
+Evidence Type: Statistical; Expert Opinion
+Confidence Level: Medium-High
+Reasoning Notes: Customer Exit Due to Delayed Modernization (R157) produces the consequence(s) 'Customer defection, reduced trust, lower loyalty, and loss of valuable customers', which aligns with the root cause of Increased Opportunity Cost and Reduced Innovation Capacity (R156): Lack of flexibility to integrate new technologies or adapt to market demands.
+Standardized Relationship Entry: IF Customer Exit Due to Delayed Modernization (R157) materializes THEN it can trigger or worsen Increased Opportunity Cost and Reduced Innovation Capacity (R156).
