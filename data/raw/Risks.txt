@@ -1070,26 +1070,6 @@ Standardized Risk Entry: When major unanticipated changes are implemented withou
 Key Quote for Prompting: The aim is to implement (and revalidate) possibly major changes to the system without being able a priori to predict how user requirements will evolve.
 Logic Pattern: IF architecture does not support unanticipated change AND a major requirement is implemented THEN integrity may be compromised.
 
-Risk ID: R54
-Paper ID: P22
-Risk Name: Servicing Patches Accelerate Architecture Deterioration
-Risk Description: In servicing, only tactical changes such as patches, code changes, and wrappers are possible; these may further deteriorate the architecture.
-Modernization Strategy: Servicing / Wrapping
-Dimension: Technical
-Granularity Level: System-wide / Component-level
-Root Cause / Challenge: Architecture coherence has already degraded and available knowledge is limited.
-Trigger Event: A tactical patch or wrapper is applied.
-Impact / Consequences: Architecture deteriorates further and future changes become more difficult.
-Linked Risks: R54, R55, R58
-Stakeholders: Maintainers, service teams, system owners
-Contextual Constraints: 
-Evidence Type: Expert Opinion
-Detection Source: Source Code / Architecture Diagram / Change Log
-Key Terminology (Tags): [#Servicing, #Patches, #Wrappers, #ArchitectureDecay]
-Standardized Risk Entry: Tactical servicing changes can address immediate needs but risk further architectural decay.
-Key Quote for Prompting: During the servicing stage only minor tactical program changes can be done. They usually take a form of patches and wrappers, and they further deteriorate the architecture.
-Logic Pattern: IF a system is in servicing AND changes are implemented as patches/wrappers THEN architecture deterioration may increase.
-
 Risk ID: R56
 Paper ID: P22
 Risk Name: New Technology Introduces New Maintenance Problems

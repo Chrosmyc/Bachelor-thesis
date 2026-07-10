@@ -2400,19 +2400,6 @@ Reasoning Notes: The paper explicitly states that retain is the appropriate stra
 This directly reduces the organizational maturity risk associated with rebuild initiatives.
 Standardized Relationship Entry: Retaining the application until organizational readiness improves reduces the risk that a rebuild initiative is undertaken without sufficient business agility or organizational maturity.
 
-Relationship ID: Rel194
-Risk ID: R130 (Tool-only discovery misses undocumented dependencies)
-Mitigation ID: M130 (Use Low-Code and Workflow Automation for Frontline and LOB Applications)
-Relationship Type: Detects
-Influence Strength: High
-Secondary Risk Created:
-Applicability Conditions: During workload assessment before Azure migration.
-Observed Outcome: Improved visibility into workload components and configurations.
-Evidence Type: Expert Opinion
-Confidence Level: High
-Reasoning Notes: Automated discovery helps uncover workload dependencies and assessment information but may not find undocumented dependencies.
-Standardized Relationship Entry: Automated discovery tools detect workload information and reduce the likelihood that undocumented dependencies remain hidden.
-
 Relationship ID: Rel195
 Risk ID: R130 (Tool-only discovery misses undocumented dependencies)
 Mitigation ID: M131 (Use automated workload discovery and assessment tools)
@@ -2770,32 +2757,6 @@ Expert Opinion
 Confidence Level: High
 Reasoning Notes: The paper presents modernization as a way to maintain customer trust and avoid customer defection caused by outdated systems.
 Standardized Relationship Entry: On-time system modernization reduces customer-exit risk by improving system responsiveness, reliability, and customer experience quality.
-
-Relationship ID: Rel229
-Risk ID: R161 (Delayed Modernization Increases Future Upgrade Complexity)
-Mitigation ID: M165 (Low-Hanging-Fruit Modernization)
-Relationship Type: Reduces
-Influence Strength: Medium
-Secondary Risk Created: Core infrastructure risks may remain temporarily unresolved.
-Applicability Conditions: Applies when lower-risk modernization targets such as manual processes or customer-facing applications exist and modernization has been delayed.
-Observed Outcome: The paper presents starting with low-hanging fruits as a way to begin modernization before addressing the core IT infrastructure.
-Evidence Type: Expert Opinion
-Confidence Level: Medium
-Reasoning Notes: Low-hanging-fruit modernization creates early modernization progress and can reduce the chance that delayed modernization continues to accumulate upgrade complexity and cost, although it does not immediately resolve all core infrastructure risks.
-Standardized Relationship Entry: Low-hanging-fruit modernization reduces delayed-modernization upgrade complexity by creating a lower-risk entry path into modernization before deeper infrastructure work.
-
-Relationship ID: Rel230
-Risk ID: R165 (Emotional Debt Blocks Modernization Trust)
-Mitigation ID: M170 (Future Postmortem Workshop)
-Relationship Type: Detects / Reduces
-Influence Strength: High
-Secondary Risk Created: May surface uncomfortable issues
-Applicability Conditions: Applies where teams distrust modernization because of past failures or hidden concerns.
-Observed Outcome: The paper says future postmortems expose risks not raised in traditional meetings and support a realistic roadmap.
-Evidence Type: Expert Opinion
-Confidence Level: High
-Reasoning Notes: The mitigation directly addresses hidden skepticism and unspoken risks.
-Standardized Relationship Entry: A future postmortem reduces emotional debt risk by surfacing hidden failure assumptions before modernization execution.
 
 Relationship ID: Rel229
 Risk ID: R158 (Cascading Failures due to Legacy Interdependencies)
