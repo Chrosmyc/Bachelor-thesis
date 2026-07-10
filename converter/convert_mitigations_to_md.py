@@ -4,7 +4,7 @@ import re
 SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = SCRIPT_DIR.parent
 
-INPUT_FILE = SCRIPT_DIR / "Mitigations.txt"
+INPUT_FILE = PROJECT_DIR / "data" / "raw" / "Mitigations.txt"
 OUTPUT_FOLDER = PROJECT_DIR / "data" / "mitigations"
 OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
 
