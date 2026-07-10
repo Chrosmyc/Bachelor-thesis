@@ -12,8 +12,8 @@ OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
 with open(INPUT_FILE, "r", encoding="utf-8") as f:
     content = f.read()
 
-risk_blocks = re.split(r'(?=Mitigation ID:)', content)
-risk_blocks = [block.strip() for block in risk_blocks if block.strip()]
+mitigation_blocks = re.split(r'(?=Mitigation ID:)', content)
+mitigation_blocks = [block.strip() for block in mitigation_blocks if block.strip()]
 
 def create_markdown(data):
     import re
@@ -86,8 +86,9 @@ evidence:
     for risk in related_risks:
         markdown += f"  - {risk}\n"
 
-    markdown += f"""
+    markdown += "\n---\n"
 
+    markdown += f"""
 # Description
 {data.get("Mitigation Description","")}
 
@@ -129,7 +130,7 @@ evidence:
     return markdown
 
 
-for block in risk_blocks:
+for block in mitigation_blocks:
     data = {}
     
     for line in block.splitlines():

@@ -11,8 +11,8 @@ OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
 with open(INPUT_FILE, "r", encoding="utf-8") as f:
     content = f.read()
 
-risk_blocks = re.split(r'(?=Relationship ID:)', content)
-risk_blocks = [block.strip() for block in risk_blocks if block.strip()]
+relationship_blocks_rm = re.split(r'(?=Relationship ID:)', content)
+relationship_blocks_rm = [block.strip() for block in relationship_blocks_rm if block.strip()]
 
 def create_markdown(data):
     import re
@@ -30,6 +30,7 @@ confidence_level: {data.get("Confidence Level","")}
 
 evidence_type: {data.get("Evidence Type","")}
 
+---
 
 # Secondary Risk Created
 {data.get("Secondary Risk Created","")}
@@ -49,7 +50,7 @@ evidence_type: {data.get("Evidence Type","")}
     return markdown
 
 
-for block in risk_blocks:
+for block in relationship_blocks_rm:
     data = {}
     
     for line in block.splitlines():

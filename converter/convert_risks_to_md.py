@@ -59,9 +59,6 @@ def create_markdown(data):
         if c.strip()
     ]
 
-    # --------------------------
-    # YAML Header
-    # --------------------------
 
     markdown = f"""---
 id: {data.get("Risk ID","")}
@@ -91,12 +88,9 @@ papers:
     for tag in tags:
         markdown += f"  - {tag}\n"
 
-    # --------------------------
-    # Markdown Inhalt
-    # --------------------------
+    markdown += "\n---\n"
 
     markdown += f"""
-
 # Description
 {data.get("Risk Description","")}
 

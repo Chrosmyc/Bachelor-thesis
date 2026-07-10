@@ -11,6 +11,7 @@ confidence_level: Medium
 
 evidence_type: Case Study / Research Opportunity
 
+---
 
 # Secondary Risk Created
 Initial setup cost of the twin.
