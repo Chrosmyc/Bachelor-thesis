@@ -9,17 +9,18 @@ def main():
     print("Loaded Number of Mitigations:", len(mitigations))
     print("Loaded Number of Relationships:", len(relationships))
 
-    question = input("\nEnter Question: ")
+    while True:
+        question = input("\nEnter Question: ")
 
-    answer = ask_question(
-        question,
-        risks,
-        mitigations,
-        relationships
-    )
+        answer = ask_question(
+            question,
+            risks,
+            mitigations,
+            relationships
+        )
 
-    print("\nAnswer:")
-    print(answer)
+        print("\nAnswer:")
+        print(answer)
 
 
 if __name__ == "__main__":
