@@ -1,0 +1,678 @@
+﻿Loaded Number of Risks: 154
+Loaded Number of Mitigations: 166
+Loaded Number of Relationships: 357
+Starting evaluation with 35 questions.
+
+================================================================================
+QUESTION 1/35
+================================================================================
+What are the root cause, trigger event, impact, and stakeholders of R1 – Incomplete or Erroneous Data Migration?
+
+ANSWER:
+R1 – **Incomplete or Erroneous Data Migration**
+
+- **Root cause:** Use of obsolete database models that do not support modern relational structures.
+- **Trigger event:** Execution of the cut-over or data ETL (Extract, Transform, Load) phase.
+- **Impact:** New system instability, loss of business-critical data, high regaining costs.
+- **Stakeholders:** Database Administrator, Software Architect, Data Analyst.
+
+Relevant ID: **R1**
+
+================================================================================
+QUESTION 2/35
+================================================================================
+What causes R2 – Scarcity of Experts and Documentation, and what consequences can it have for a modernization project?
+
+ANSWER:
+R2 – Scarcity of Experts and Documentation is caused by an aging workforce and a lack of continuous documentation updates during the system’s lifecycle, especially when original developers retire or leave. It is triggered by the retirement of key personnel. [R2]
+
+Its consequences for modernization include project delays, inability to understand the business logic, and an increased risk of system failure during modernization. [R2]
+
+A relevant mitigation is automated logic extraction to recover hidden rules and improve understanding of the legacy system. [M2]
+
+================================================================================
+QUESTION 3/35
+================================================================================
+Which mitigations address R2 – Scarcity of Experts and Documentation, and how do they support knowledge recovery?
+
+ANSWER:
+The mitigations that address **R2 – Scarcity of Experts and Documentation** are:
+
+- **M2 – Automated Logic Extraction**: uses automated techniques to generate diagrams and extract rules from source code, helping recover hidden business logic and system understanding.  
+- **M4 – Improvement of Architectural Refactoring Tools**: uses LLMs and automated refactoring tools to detect and remove smells, reducing manual dependence on scarce experts.  
+- **M55 – Understand the Legacy System Before Migration**: performs a structured analysis of source code, dependencies, database structure, documentation, and behavior to build a full understanding before migration.  
+- **M88 – Knowledge harvesting and documentation update**: captures expert knowledge through interviews, training, and documentation updates so scarce knowledge is preserved and not lost.  
+
+These mitigations support knowledge recovery by:
+- **extracting hidden logic from code**,
+- **reconstructing architecture and dependencies**,
+- **capturing tacit knowledge from remaining experts**, and
+- **updating documentation so knowledge is retained for the modernization team**.
+
+Relevant IDs: **R2**, **M2**, **M4**, **M55**, **M88**.
+
+================================================================================
+QUESTION 4/35
+================================================================================
+Which risks are addressed by M6 – Proof of Concept? Include the relationship types and applicability conditions.
+
+ANSWER:
+M6 – Proof of Concept addresses these risks:
+
+- **R1 – Incomplete or Erroneous Data Migration**
+- **R5 – Cultural and Staff Resistance**
+- **R7 – Insufficient Tooling Support**
+- **R10 – Post-Modernization Performance Degradation**
+- **R12 – Project Failure due to Poor Planning**
+- **R15 – Semantic Impedance Mismatch**
+- **R20 – API and Data Incompatibility**
+- **R25 – Project Failure Due to Wrong Modernization Strategy**
+- **R26 – Schedule Delay Due to Incompatible Component Selection**
+
+**Relationship type:**  
+- **Mitigation-to-risk relationship** (`M6` → related risks listed above)
+
+**Applicability conditions:**  
+- **Proactive (Prevention)**  
+- Requires a **representative subset of the legacy code/data**  
+- Uses the **target platform environment**  
+- **Applicable to complex migrations from mainframes**
+
+Relevant IDs: **M6**, **R1**, **R5**, **R7**, **R10**, **R12**, **R15**, **R20**, **R25**, **R26**
+
+================================================================================
+QUESTION 5/35
+================================================================================
+Compare R5 – Cultural and Staff Resistance with R9 – User Resistance.
+
+ANSWER:
+R5 and R9 are both resistance-related modernization risks, but they differ in who resists and why:
+
+- **R5 – Cultural and Staff Resistance** is an **organizational** risk. It comes from **employees or the wider organization** resisting modernization because of **fear of change**, attachment to the old system, or concern that their expertise will become redundant. Its impact includes **project sabotage, slow adoption, and failure to realize business benefits**.  
+  - Relevant IDs: **R5**, with mitigation support from **M7**, **M20**, **M30**, **M31**, **M32**, **M33**.
+
+- **R9 – User Resistance** is an **organizational** risk focused specifically on **end users**. It happens when users who are accustomed to **efficient legacy character-based interfaces** find a new **GUI slower or less intuitive**, leading to **lower satisfaction, productivity drops, and complaints during transition**.  
+  - Relevant IDs: **R9**, with mitigation support from **M7** and **M20**.
+
+**Main difference:**  
+- **R5** is broader, covering **staff and organizational culture** resistance to modernization.  
+- **R9** is narrower, focusing on **users’ reaction to interface change**.
+
+**Relationship:**  
+- They are related because both can slow adoption and undermine modernization success, and **M7 (Staff Training and Developer Education)** and **M20 (Effective Change Management)** can mitigate both.
+
+================================================================================
+QUESTION 6/35
+================================================================================
+What are the main causes and consequences of R10 – Post-Modernization Performance Degradation?
+
+ANSWER:
+R10 — **Post-Modernization Performance Degradation** is caused mainly by **new architectural components introduced during re-hosting**, especially **firewalls and other security mechanisms** in the modern environment. It is triggered at **cutover to the new environment**. The consequence is **slower response times** and **failure to meet original performance expectations**. It is also linked to **User Resistance**.
+
+Relevant IDs: **R10** (risk), linked risk **User Resistance**.
+
+================================================================================
+QUESTION 7/35
+================================================================================
+Which mitigation is documented for R18 – Orchestration and Complexity Explosion, and how does it control service complexity?
+
+ANSWER:
+The documented mitigation for **R18 – Orchestration and Complexity Explosion** is **M11: SOA Governance and SLAs**.
+
+It controls service complexity by **defining boundaries and regulations through Service Level Agreements (SLAs) and establishing central governance**, which helps **control the growth of SOA** and prevents the services from becoming an unmanageable “spaghetti dish.”  
+Relevant IDs: **R18**, **M11**.
+
+================================================================================
+QUESTION 8/35
+================================================================================
+Explain the relationship between R1 – Incomplete or Erroneous Data Migration and M1 – Data Migration Strategy.
+
+ANSWER:
+R1 and M1 are directly related: **M1 is the mitigation for R1**.
+
+- **R1 – Incomplete or Erroneous Data Migration** describes the risk that data transferred from legacy systems to modern systems may be corrupted or disturbed during ETL/cut-over, causing instability and loss of business-critical data.
+- **M1 – Data Migration Strategy** recommends **developing a comprehensive data migration strategy at the beginning of the project**, including **mapping and cleaning**, to reduce that migration risk.
+
+So the relationship is:
+
+- **Risk ID:** R1  
+- **Mitigation ID:** M1  
+- **Relationship:** M1 is a proactive prevention strategy for R1, especially relevant before data migration begins.
+
+Relevant ID citations: **R1**, **M1**.
+
+================================================================================
+QUESTION 9/35
+================================================================================
+How does M2 – Automated Logic Extraction address R2 – Scarcity of Experts and Documentation?
+
+ANSWER:
+M2 addresses R2 by using automated tools to generate diagrams and extract rules from the legacy source code, helping recover understanding of the system’s business logic when experts are scarce and documentation is outdated or missing. This directly supports analysis of legacy internals and reduces reliance on absent personnel.
+
+Relevant IDs:
+- Risk: R2 – Scarcity of Experts and Documentation
+- Mitigation: M2 – Automated Logic Extraction
+
+================================================================================
+QUESTION 10/35
+================================================================================
+How can M2 – Automated Logic Extraction help detect R8 – Transfer of Legacy Flaws?
+
+ANSWER:
+M2 – Automated Logic Extraction can help detect R8 – Transfer of Legacy Flaws by automatically generating diagrams and extracting rules from source code to better understand the legacy system’s functionality before decomposition. This improves visibility into legacy logic, which helps identify problems or anti-patterns that might otherwise be carried into the new architecture during modernization. Relevant IDs: **M2**, **R8**, and **R2** as a related knowledge-loss enabler.
+
+================================================================================
+QUESTION 11/35
+================================================================================
+How does M5 – Digital Twin Simulation address R10 – Post-Modernization Performance Degradation?
+
+ANSWER:
+M5 addresses R10 by simulating the system in a digital twin before implementation so teams can see how the modernized environment will behave under different operating conditions and identify performance issues in advance. This helps predict and optimize performance before cutover, reducing the chance of post-modernization latency or slower response times [R10; M5].
+
+================================================================================
+QUESTION 12/35
+================================================================================
+Explain how M6 – Proof of Concept detects R20 – API and Data Incompatibility.
+
+ANSWER:
+M6 – Proof of Concept detects R20 – API and Data Incompatibility by doing a small-scale validation of the migration/modernization approach before full commitment, using a representative subset of the legacy code/data in the target platform environment. This early test can reveal whether legacy interfaces differ from the cloud APIs/frameworks or cloud database paradigms, exposing incompatibilities before the full migration proceeds.  
+
+Relevant IDs:  
+- Mitigation ID: M6  
+- Risk ID: R20
+
+================================================================================
+QUESTION 13/35
+================================================================================
+How does M7 – Staff Training and Developer Education reduce R5 and R9?
+
+ANSWER:
+M7 reduces **R5 (Cultural and Staff Resistance)** and **R9 (User Resistance)** by providing structured training for both groups:
+
+- For **developers/technical staff**, it helps them learn the new environment and infrastructure, reducing fear, skill gaps, and resistance to change.
+- For **end-users**, it helps them adapt to the new GUI and workflows, reducing dissatisfaction and productivity drops during the transition.
+
+Relevant IDs:
+- **Mitigation:** M7
+- **Risks:** R5, R9
+
+================================================================================
+QUESTION 14/35
+================================================================================
+Explain how M8 – Comprehensive Upfront Planning and Risk Analysis addresses R12 – Project Failure due to Poor Planning.
+
+ANSWER:
+M8 addresses R12 by requiring deep upfront planning, systematic evaluation of trade-offs, and identification of risks before the project starts. This directly mitigates the cause of R12, which is poor planning and rushing into modernization without proper analysis.
+
+In the knowledge base, M8 is a proactive prevention mitigation for R12 because it:
+- establishes clear business goals and stakeholder alignment,
+- forces systematic risk analysis before execution,
+- helps avoid unforeseen trade-offs and project failure.
+
+So, M8 reduces the chance of R12 by making modernization planning deliberate and risk-informed rather than ad hoc.  
+Relevant IDs: M8, R12.
+
+================================================================================
+QUESTION 15/35
+================================================================================
+Which risks are addressed by M3 – Transition to Standard Software Products, and which secondary risks may this mitigation introduce?
+
+ANSWER:
+M3 – Transition to Standard Software Products addresses these risks:
+
+- **R3** – Time Overrun
+- **R4** – Cost Overrun
+- **R7** – Insufficient Tooling Support
+- **R12** – Project Failure due to Poor Planning
+- **R26** – Schedule Delay Due to Incompatible Component Selection
+
+The mitigation description for **M3** does **not** list any secondary risks it may introduce in the knowledge base.
+
+Relevant IDs: **M3**, **R3**, **R4**, **R7**, **R12**, **R26**.
+
+================================================================================
+QUESTION 16/35
+================================================================================
+Create a risk chain from R2 – Scarcity of Experts and Documentation to R3 – Time Overrun.
+
+ANSWER:
+R2 → R3
+
+- **R2: Scarcity of Experts and Documentation** can cause delays because key personnel may retire or leave, leaving the team unable to understand legacy business logic and system internals.
+- Those delays and knowledge gaps contribute to **R3: Time Overrun**, since modernization projects are long-running and are especially vulnerable to limited expertise and resources.
+
+Relevant IDs:
+- Risk: **R2**, **R3**
+- Relationship: **R2 linked to Time Overrun** in R2’s linked risks list and **R3 root cause includes scarcity of experts and lack of resources**.
+
+
+
+================================================================================
+QUESTION 17/35
+================================================================================
+Explain how R12 – Project Failure due to Poor Planning can trigger R4 – Cost Overrun.
+
+ANSWER:
+R12 can trigger R4 because inadequate upfront planning and risk analysis can cause modernization projects to underestimate the real effort, complexity, and hidden costs. When a project is rushed into without systematic evaluation, budget assumptions are often unrealistic, which can lead to underfunding and then actual spend far exceeding the estimate. That cost gap is exactly the mechanism behind R4’s “Cost Overrun.” [R12, R4]
+
+Relevant IDs:
+- Risk: R12, R4
+
+================================================================================
+QUESTION 18/35
+================================================================================
+Explain how R1 – Incomplete or Erroneous Data Migration can trigger R4 – Cost Overrun.
+
+ANSWER:
+R1 can trigger R4 because errors during data migration can cause system disturbance, new system instability, and loss of business-critical data, which then forces rework, recovery efforts, and additional migration effort. The risk entry for R1 explicitly says incomplete or erroneous migration can lead to “high regaining costs,” and R4 describes cost overrun as occurring when the real cost and time are much higher than initially estimated, often due to underestimating legacy complexity.
+
+So the relationship is:
+
+- **R1 (Incomplete or Erroneous Data Migration)** creates **data corruption/system disturbance** during cut-over or ETL.
+- That instability and data loss typically require **extra remediation, re-migration, testing, and project delay**.
+- Those extra efforts drive **actual spend above budget**, which is **R4 (Cost Overrun)**.
+
+Relevant IDs:
+- **Risk ID:** R1
+- **Risk ID:** R4
+- **Mitigation ID:** M1 (Data Migration Strategy) helps reduce R1 and, by extension, the cost escalation that can contribute to R4.
+
+================================================================================
+QUESTION 19/35
+================================================================================
+How can R9 – User Resistance develop into R5 – Cultural and Staff Resistance?
+
+ANSWER:
+R9 can develop into R5 when initial user resistance to the new GUI turns into broader organizational resistance to modernization. In the knowledge base, R9 is driven by users being accustomed to efficient legacy character-based interfaces, causing dissatisfaction and productivity drops after GUI deployment. If that resistance is not addressed, it can expand into the wider fear of change, attachment to the old system, and concern that expertise will become redundant, which is the basis of R5.
+
+Relevant IDs:
+- Risk: R9, R5
+- Mitigation: M7, M20, M33
+
+================================================================================
+QUESTION 20/35
+================================================================================
+Which risk may be introduced by M14 – Component Decoupling when microservices are created without strong governance?
+
+ANSWER:
+M14 – Component Decoupling can introduce **R19: Vendor Lock-in** if microservices or the modernized components become tightly coupled to proprietary cloud technologies and APIs, especially when governance is weak and architecture choices are not controlled. Relevant IDs: **R19**, **M14**.
+
+================================================================================
+QUESTION 21/35
+================================================================================
+Which risk may be introduced by M3 – Transition to Standard Software Products, and why?
+
+ANSWER:
+M3 – Transition to Standard Software Products may introduce **R104: COTS vendor upgrade and license fee dependency**.
+
+Why: replacing custom legacy code with standard/off-the-shelf software can reduce maintenance costs, but it creates dependency on the vendor’s upgrade path and exposes the organization to **license fee increases** and **vendor-controlled updates**. [R104]
+
+================================================================================
+QUESTION 22/35
+================================================================================
+Explain how R16 – Lack of Legacy System Disposition Strategy can lead to R135 – Prolonged Dual-System Transition.
+
+ANSWER:
+R16 can lead to R135 because if there is no clear disposition strategy for retiring the legacy system, the old system is left active even after the new system is introduced. That means both systems continue to run in parallel longer than planned, which directly creates a prolonged dual-system transition and higher management complexity.
+
+- **R16** says the legacy system is not planned for decommissioning, causing the old system to remain active indefinitely alongside the new one.
+- **R135** describes the result: the old and new systems coexist for an extended period, increasing cost and complexity.
+
+This relationship is consistent with the modernization logic that if no disposition strategy exists, the legacy system remains active, which prolongs the dual-system period. Relevant IDs: **R16** and **R135**.
+
+================================================================================
+QUESTION 23/35
+================================================================================
+A company migrates data from an obsolete non-relational database with incomplete documentation. Identify the relevant risks, mitigations, and relationships.
+
+ANSWER:
+Relevant risk: **R1 – Incomplete or Erroneous Data Migration**  
+- This matches an **obsolete non-relational database** and migration from poorly documented legacy data.
+
+Relevant mitigation(s):  
+- **M1 – Data Migration Strategy**  
+- **M2 – Automated Logic Extraction**  
+- **M55 – Understand the Legacy System Before Migration**  
+- **M6 – Proof of Concept**  
+- **M18 – AI-Driven Data Migration**  
+
+Relevant relationships:  
+- **R1 ↔ M1**: M1 is explicitly related to R1.  
+- **R1 ↔ M18**: M18 is explicitly related to R1.  
+- **R2 ↔ M2** and **R2 ↔ M55**: because incomplete documentation also aligns with **R2 – Scarcity of Experts and Documentation**, and these mitigations are related to R2.  
+- **R2 ↔ M6**: M6 is related to R2 through broader migration feasibility reduction.  
+
+If you want only the most direct match, the core answer is **R1 with M1 and M18**.
+
+================================================================================
+QUESTION 24/35
+================================================================================
+A monolithic legacy system is decomposed into many microservices without central governance or service-level agreements. Which risks may occur, and which mitigation should be applied?
+
+ANSWER:
+The relevant risks are:
+
+- **R18 — Orchestration and Complexity Explosion**: decomposing into many services without governance can create unmanageable service complexity.
+- **R85 — Overly aggressive microservice decomposition**: splitting too technically, without business alignment, can harm business fit.
+- **R86 — Wrong microservice granularity**: services may end up too large, too small, too coupled, or not cohesive enough.
+- **R83 — Low cohesion or high coupling after decomposition**: poor decomposition can leave microservices tightly coupled and hard to maintain.
+
+The mitigation to apply is:
+
+- **M11 — SOA Governance and SLAs**: establish central governance and define service-level agreements to control service growth and complexity.
+
+Relevant IDs: **R18, R83, R85, R86, M11**.
+
+================================================================================
+QUESTION 25/35
+================================================================================
+A mainframe application is rehosted to a distributed environment with additional firewalls and security layers. Which risk should be expected, and how can it be detected before full migration?
+
+ANSWER:
+The expected risk is **R10: Post-Modernization Performance Degradation**. It is linked to re-hosting mainframe workloads into distributed environments where new layers such as firewalls and security mechanisms can slow the system down.
+
+It can be detected before full migration through **R10’s detection source: interview transcripts / documentation** and by reviewing the **project plan / operational data** for performance expectations and bottlenecks. A relevant mitigation is **M12: Intensive Testing and Monitoring**, which validates performance before and during migration.
+
+Relevant IDs:
+- **Risk:** R10
+- **Mitigation:** M12
+
+================================================================================
+QUESTION 26/35
+================================================================================
+Several legacy experts will retire before the modernization project is completed. The documentation is outdated. Which risks and mitigations are relevant?
+
+ANSWER:
+Relevant risk: **R2 – Scarcity of Experts and Documentation**. It applies when original developers retire or leave and documentation is outdated or missing, causing delays and misunderstanding of business logic.
+
+Relevant mitigations:
+- **M2 – Automated Logic Extraction**: use automated tools to extract diagrams and rules from source code to better understand legacy logic.
+- **M88 – Knowledge harvesting and documentation update**: conduct interviews, archive knowledge, initiate knowledge transfer, and update documentation.
+- **M55 – Understand the Legacy System Before Migration**: analyze source code, dependencies, database structure, behavior, and documentation before migration.
+- **M6 – Proof of Concept**: if the modernization is complex, validate the approach on a small representative subset before full commitment.
+
+Risk IDs: **R2**  
+Mitigation IDs: **M2, M6, M55, M88**
+
+================================================================================
+QUESTION 27/35
+================================================================================
+Employees resist a new graphical interface because they prefer the existing terminal-based workflow. Identify the risks, mitigation, stakeholders, and possible side effects.
+
+ANSWER:
+The relevant risk is **R9 — User Resistance**: users accustomed to highly efficient legacy character-based interfaces may resist a new GUI, leading to lower satisfaction, initial productivity drops, and complaints during transition.
+
+**Mitigation**
+- **M7 — Staff Training and Developer Education**  
+  This mitigation addresses user resistance by providing structured training for end users and technical staff.
+
+**Stakeholders**
+- From **R9**: **Project Manager**, **End Users**
+- From **M7**: **Software Architect**, **Project Manager**, **End Users**, **Developers**
+
+**Possible side effects**
+- From **M7**: **Short-term productivity loss during the training phase**
+
+Relevant IDs:
+- Risk: **R9**
+- Mitigation: **M7**
+- Stakeholders: **Project Manager**, **End Users**, **Software Architect**, **Developers**
+- Side effect: **short-term productivity loss during the training phase**
+
+================================================================================
+QUESTION 28/35
+================================================================================
+A company plans a large-scale modernization without a clear budget, roadmap, or legacy-system decommissioning plan. Identify the most relevant risks and mitigations.
+
+ANSWER:
+The most relevant risks are:
+
+- **R100 – Unrealistic cost and schedule estimates**: modernization estimates may be unreliable without a genuine current-state assessment.
+- **R12 – Project Failure due to Poor Planning**: rushing into modernization without systematic planning and risk analysis can lead to failure.
+- **R16 – Lack of Business Disposition Strategy**: if there is no plan to decommission the legacy system, the old system may remain active indefinitely and continue to incur costs.
+
+Most relevant mitigations are:
+
+- **M10 – Comprehensive Modernization Roadmap Implementation**: includes milestones, cost estimates, and a disposition strategy for the legacy system; directly addresses **R100** and **R16**.
+- **M8 – Comprehensive Upfront Planning & Risk Analysis**: systematic upfront planning and trade-off analysis to reduce project failure risk; directly addresses **R12**.
+- **M93 – Genuine assessment-based cost and time estimation**: base estimates on a real assessment rather than guesses; directly addresses **R100**.
+- **M91 – Application assessment and modernization roadmap**: assess the current environment and create a roadmap of application dispositions; relevant to **R100** and **R16**.
+
+Relevant IDs:
+- Risks: **R100, R12, R16**
+- Mitigations: **M10, M8, M93, M91**
+
+================================================================================
+QUESTION 29/35
+================================================================================
+A Proof of Concept detects performance and API compatibility problems. Explain which documented risks were identified and how this information should influence the full modernization project.
+
+ANSWER:
+A Proof of Concept that detects performance and API compatibility problems most directly identifies these documented risks:
+
+- **R10 – Post-Modernization Performance Degradation**: the new environment may be slower due to added layers or less efficient execution.
+- **R20 – API and Data Incompatibility**: legacy systems may not be compatible with cloud APIs, frameworks, or cloud database paradigms.
+
+This means the PoC is surfacing exactly the kind of issues that the knowledge base says can appear during modernization and that should be validated early rather than discovered during full cutover.
+
+How it should influence the full modernization project:
+- Treat the PoC results as an **early warning** that the selected target architecture or migration approach may need adjustment before full-scale rollout.
+- Use the findings to **refine the modernization plan**, especially around performance engineering and interface compatibility.
+- Do **not** proceed to full modernization unchanged; instead, incorporate mitigation and validation work before committing to production migration.
+
+Relevant mitigation and relationship IDs:
+- **M6 – Proof of Concept**: validates feasibility before full commitment.
+- **M12 – Intensive Testing and Monitoring**: supports rigorous performance/reliability/security validation.
+- **M34 – Structured cloud platform selection framework**: helps choose a better-fitting platform based on resilience and operational fit.
+- **M36 – SOA-based integration architecture**: helps address integration and coexistence issues.
+- **M37 – Performance engineering and validation**: directly addresses performance risk.
+- **M39 – Data classification and mapping**: helps reduce migration complexity and incompatibility related to data structures.
+- **R10 ↔ R20** are the key risk IDs identified by the PoC.
+
+
+
+================================================================================
+QUESTION 30/35
+================================================================================
+A company replaces custom legacy software with a standard commercial product. Identify both the risks that may be reduced and the new risks that may be introduced.
+
+ANSWER:
+Replacing custom legacy software with a standard commercial product can reduce these risks:
+
+- **R4 – Cost Overrun**
+- **R7 – Insufficient Tooling Support**
+- **R12 – Project Failure due to Poor Planning**
+- **R15 – Semantic Impedance Mismatch**
+- **R26 – Schedule Delay Due to Incompatible Component Selection**
+
+This is supported by **M3 – Transition to Standard Software Products**, which is linked to those risks.
+
+A new risk that may be introduced is:
+
+- **R104 – COTS vendor upgrade and license fee dependency**
+
+There is also a likely introduced risk of:
+
+- **R118 – COTS Functional Coverage Gap**
+
+This is not in the knowledge base.
+
+================================================================================
+QUESTION 31/35
+================================================================================
+What is the exact percentage probability that M1 – Data Migration Strategy will prevent R1? State clearly when the information is not documented.
+
+ANSWER:
+This is not documented in the knowledge base.  
+Related IDs: Risk **R1**; Mitigation **M1**.
+
+================================================================================
+QUESTION 32/35
+================================================================================
+Does M6 – Proof of Concept guarantee that modernization project failure will be completely eliminated?
+
+ANSWER:
+No. M6 – Proof of Concept is described as a proactive mitigation with **high effectiveness** and **high probability of success**, but the knowledge base does **not** say it guarantees modernization project failure will be completely eliminated. It only says it helps reduce risk before full-scale modernization.
+
+Relevant IDs: **M6**, **R12**, **R25**, **R1**
+
+================================================================================
+QUESTION 33/35
+================================================================================
+Does M14 – Component Decoupling prevent R18 – Orchestration and Complexity Explosion? Verify and correct the statement using the documented relationships.
+
+ANSWER:
+Yes — the statement is **correct**.
+
+- **M14 (Component Decoupling)** is documented as a mitigation for **R18 (Orchestration and Complexity Explosion)**.  
+- The relationship is explicit in **M14.related_risks = ['R19', 'R24']**? Wait, that does **not** include R18.  
+- **R18** is instead linked to **M11 (SOA Governance and SLAs)**, not M14.
+
+So the corrected statement is:
+
+**M14 does not prevent R18 according to the knowledge base.**  
+The documented mitigation for **R18** is **M11 – SOA Governance and SLAs**.
+
+Relevant IDs:
+- Risk: **R18**
+- Mitigation that mitigates R18: **M11**
+- Mitigation in question: **M14**
+
+================================================================================
+QUESTION 34/35
+================================================================================
+Return the risks, mitigations, relationships, applicability conditions, secondary risks, evidence types, and confidence levels for a poorly documented data migration as valid JSON.
+
+ANSWER:
+{
+  "risks": [
+    {
+      "risk_id": "R1",
+      "risk_name": "Incomplete or Erroneous Data Migration",
+      "risk_description": "Errors occurring during the transfer of data from old (often non-relational) databases to modern systems, leading to data corruption or system disturbance.",
+      "dimension": "Technical",
+      "granularity_level": "Component-level (Database)",
+      "trigger_event": "Execution of the cut-over or data ETL (Extract, Transform, Load) phase.",
+      "impact": "New system instability, loss of business-critical data, high regaining costs.",
+      "evidence_type": "Case Study, Expert Opinion",
+      "confidence_level": "High"
+    },
+    {
+      "risk_id": "R2",
+      "risk_name": "Scarcity of Experts and Documentation",
+      "risk_description": "Loss of knowledge as original developers retire or leave, combined with outdated or missing system documentation.",
+      "dimension": "Organizational/Process",
+      "granularity_level": "System-wide",
+      "trigger_event": "Retirement of key personnel",
+      "impact": "Project delays, inability to understand business logic, increased risk of system failure during modernization.",
+      "evidence_type": "Statistical, Expert Opinion",
+      "confidence_level": "High"
+    }
+  ],
+  "mitigations": [
+    {
+      "mitigation_id": "M1",
+      "mitigation_name": "Data Migration Strategy",
+      "related_risks": ["R1", "R4", "R12", "R15", "R29"],
+      "mitigation_description": "Develop a comprehensive strategy for data migration at the very beginning of the project, including mapping and cleaning.",
+      "applicability_conditions": "Have to be done before migrating data; requires deep understanding of the legacy data model.",
+      "secondary_risks": ["May increase initial project duration due to extensive early planning requirements."],
+      "evidence_type": "Expert Opinion",
+      "confidence_level": "Medium"
+    },
+    {
+      "mitigation_id": "M2",
+      "mitigation_name": "Automated Logic Extraction",
+      "related_risks": ["R2", "R8", "R13"],
+      "mitigation_description": "Use automated tools to generate diagrams and extract rules from the source code to understand functionality.",
+      "applicability_conditions": "Useful when documentation is missing or outdated and legacy logic must be understood.",
+      "secondary_risks": [],
+      "evidence_type": "Expert Opinion",
+      "confidence_level": "Medium"
+    },
+    {
+      "mitigation_id": "M88",
+      "mitigation_name": "Knowledge harvesting and documentation update",
+      "related_risks": ["R101", "R94", "R95", "R100"],
+      "mitigation_description": "Conduct and archive interviews, initiate knowledge transfer programs, organize focused training, and update or create documentation to preserve existing system knowledge.",
+      "applicability_conditions": "Legacy systems with scarce skills, ageing experts, staff turnover, and incomplete documentation.",
+      "secondary_risks": ["Requires time and effort from scarce experts."],
+      "evidence_type": "Case Study",
+      "confidence_level": "High"
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "Rel-R1-M1",
+      "from_id": "R1",
+      "to_id": "M1",
+      "relationship_type": "mitigated_by",
+      "description": "Incomplete or erroneous data migration is mitigated by an early comprehensive data migration strategy."
+    },
+    {
+      "relationship_id": "Rel-R2-M2",
+      "from_id": "R2",
+      "to_id": "M2",
+      "relationship_type": "mitigated_by",
+      "description": "Scarcity of experts and documentation is mitigated by automated logic extraction to recover understanding of legacy business logic."
+    },
+    {
+      "relationship_id": "Rel-R2-M88",
+      "from_id": "R2",
+      "to_id": "M88",
+      "relationship_type": "mitigated_by",
+      "description": "Scarcity of experts and documentation is mitigated by knowledge harvesting and documentation updates."
+    },
+    {
+      "relationship_id": "Rel-R2-R1",
+      "from_id": "R2",
+      "to_id": "R1",
+      "relationship_type": "contributes_to",
+      "description": "Poor documentation and knowledge loss increase the likelihood of data migration errors."
+    }
+  ],
+  "applicability_conditions": [
+    "Poorly documented legacy data or system internals",
+    "Retirement or absence of key personnel",
+    "Need to migrate data during cut-over or ETL",
+    "Legacy systems where business logic is difficult to reconstruct"
+  ],
+  "secondary_risks": [
+    {
+      "risk_id": "R2",
+      "risk_name": "Scarcity of Experts and Documentation"
+    },
+    {
+      "risk_id": "R3",
+      "risk_name": "Time Overrun"
+    },
+    {
+      "risk_id": "R4",
+      "risk_name": "Cost Overrun"
+    }
+  ],
+  "evidence_types": [
+    "Case Study",
+    "Expert Opinion",
+    "Statistical"
+  ],
+  "confidence_levels": {
+    "R1": "High",
+    "R2": "High",
+    "M1": "Medium",
+    "M2": "Medium",
+    "M88": "High"
+  }
+}
+
+================================================================================
+QUESTION 35/35
+================================================================================
+Create a machine-readable risk chain for R2 → R3 → R4, including all available Risk IDs, Mitigation IDs, Relationship IDs, relationship types, and confidence levels.
+
+ANSWER:
+This is not in the knowledge base.
+
+================================================================================
+EVALUATION COMPLETED
+================================================================================

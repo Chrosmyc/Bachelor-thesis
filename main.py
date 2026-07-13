@@ -10,7 +10,6 @@ def main():
     print("Loaded Number of Mitigations:", len(mitigations))
     print("Loaded Number of Relationships:", len(relationships))
 
-    """
     while True:
         question = input("\nEnter Question: ")
 
@@ -28,9 +27,9 @@ def main():
     run_evaluation(
         risks,
         mitigations,
-        relationships
+        relationship
     )   
-
+    """
 
 if __name__ == "__main__":
     main()
