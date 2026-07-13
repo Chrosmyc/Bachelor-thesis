@@ -45,7 +45,7 @@ Question:
 """
 
     data = {
-        "model": "mistralai-mistral-small-4-119b",
+        "model": "gpt-5.5",
         "messages": [
             {
                 "role": "system",
