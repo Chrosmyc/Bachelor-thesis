@@ -1,6 +1,8 @@
 from parser.load_all import load_all
 from llm.question import ask_question
 from evaluation.evaluation import run_evaluation
+from graph.knowledge_graph import visualize
+
 
 
 def main():
@@ -10,6 +12,12 @@ def main():
     print("Loaded Number of Mitigations:", len(mitigations))
     print("Loaded Number of Relationships:", len(relationships))
 
+    visualize(
+        risks,
+        mitigations,
+        relationships,
+    )
+    """
     while True:
         question = input("\nEnter Question: ")
 
@@ -23,7 +31,7 @@ def main():
         print("\nAnswer:")
         print(answer)
 
-    """
+    
     run_evaluation(
         risks,
         mitigations,

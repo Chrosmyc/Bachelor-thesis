@@ -24,7 +24,7 @@ id: {data.get("Relationship ID","")}
 type: Relationship
 
 source_mitigation_id: {data.get("Source Mitigation ID","")}
-source_risk_id: {data.get("Target Risk ID","")}
+target_risk_id: {data.get("Target Risk ID","")}
 
 relationship_type: {data.get("Relationship Type","")}
 influence_strength: {data.get("Influence Strength","")}

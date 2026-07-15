@@ -46,7 +46,7 @@ def parse_relationship_file(file_path):
         relationship_type=metadata.get("relationship_type", ""),
         influence_strength=metadata.get("influence_strength", ""),
 
-        secondary_risk_created=metadata.get("secondary_risk_created", ""),
+        secondary_risk_created=sections.get("Secondary Risk Created","",),
         applicability_conditions=sections.get("Applicability Conditions", ""),
         observed_outcome=sections.get("Observed Outcome", ""),
 
