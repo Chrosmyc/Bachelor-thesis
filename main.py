@@ -11,7 +11,7 @@ def main():
     print("Loaded Number of Risks:", len(risks))
     print("Loaded Number of Mitigations:", len(mitigations))
     print("Loaded Number of Relationships:", len(relationships))
-
+    """
     visualize(
         risks,
         mitigations,
@@ -31,7 +31,7 @@ def main():
         print("\nAnswer:")
         print(answer)
 
-    
+    """
     run_evaluation(
         risks,
         mitigations,

@@ -1,6 +1,5 @@
 from pathlib import Path
 import webbrowser
-
 from pyvis.network import Network
 
 

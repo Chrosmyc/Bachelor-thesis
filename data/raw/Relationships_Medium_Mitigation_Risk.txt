@@ -1,0 +1,254 @@
+Relationship ID: Rel223
+Source Mitigation ID: M160 (Duct tape approach for local, small-scale changes)
+Target Risk ID: R153 (Accumulated cost of multiple duct tape changes)
+Relationship Type: Introduces
+Influence Strength: High
+Secondary Risk Created: R153
+Applicability Conditions: Repeated use of duct tape changes over time.
+Observed Outcome: Cost of multiple changes accumulates.
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: Explicitly stated in the paper as a risk associated with the duct tape approach.
+Standardized Relationship Entry: Repeated application of the duct tape approach can introduce accumulated cost risk through many small changes.
+
+Relationship ID: Rel239
+Source Mitigation ID: M101 (Strangler Pattern)
+Target Risk ID: R135 (Prolonged dual-system transition)
+Relationship Type: Introduces
+Influence Strength: High
+Applicability Conditions: The Strangler Pattern is chosen for a massive, mission-critical monolith.
+Observed Outcome: The organization is forced to manage, monitor, and fund two parallel environments for years.
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: By definition, the Strangler Pattern (gradual replacement) requires the legacy system and the new system to coexist, inherently creating a prolonged dual-system transition.
+Standardized Relationship Entry: IF the Strangler Pattern is utilized THEN the risk of a prolonged dual-system transition is introduced.
+
+Relationship ID: Rel240
+Source Mitigation ID: M101 (Strangler Pattern)
+Target Risk ID: R136 (People allocation and skill-split)
+Relationship Type: Introduces
+Influence Strength: High
+Applicability Conditions: A limited IT staff is managing both the legacy and the new strangler architecture.
+Observed Outcome: Developer capacity is bottlenecked because they must patch COBOL while writing modern Java microservices.
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: Incremental strangulation forces the organization to divide its engineering attention between maintaining the old system and building the new one.
+Standardized Relationship Entry: IF the Strangler Pattern is utilized THEN people allocation and skill-split risks are introduced.
+
+Relationship ID: Rel241
+Source Mitigation ID: M160 (Duct tape approach for local, small-scale changes)
+Target Risk ID: R152 (Architecture overcomplexity from too many integrations and components)
+Relationship Type: Introduces
+Influence Strength: High
+Applicability Conditions: Repeated application of duct-tape changes over several business quarters.
+Observed Outcome: The architecture becomes a patchwork of mismatched integrations, APIs, and wrappers.
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: Applying local, small-scale fixes without a core architecture overhaul inevitably leads to a tangled web of integrations and overcomplexity.
+Standardized Relationship Entry: IF the duct tape approach is used repeatedly THEN architecture overcomplexity from too many integrations is introduced.
+
+Relationship ID: Rel242
+Source Mitigation ID: M3 (Transition to Standard Software Products)
+Target Risk ID: R104 (COTS vendor upgrade and license fee dependency)
+Relationship Type: Introduces
+Influence Strength: High
+Applicability Conditions: Replacing custom legacy software with standard COTS (Commercial Off-The-Shelf) products.
+Observed Outcome: The organization becomes dependent on the vendor's roadmap and is subject to forced upgrades and license fee hikes.
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: Transitioning to standardized products intrinsically shifts control from internal IT to an external vendor, exposing the business to licensing and upgrade dependencies.
+Standardized Relationship Entry: IF transition to standard software products is selected THEN COTS vendor upgrade and license fee dependency risks are introduced.
+
+Relationship ID: Rel243
+Source Mitigation ID: M14 (Component Decoupling)
+Target Risk ID: R18 (Orchestration and Complexity Explosion)
+Relationship Type: Introduces
+Influence Strength: High
+Applicability Conditions: Breaking down a monolithic legacy system into heavily decoupled microservices without a strong SOA governance framework.
+Observed Outcome: The number of services explodes, leading to tracing difficulties and unmanageable complexity.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Component decoupling inherently increases the number of moving parts, networking layers, and APIs, triggering an orchestration crisis if left unmanaged.
+Standardized Relationship Entry: IF component decoupling is aggressively applied THEN the risk of orchestration and complexity explosion is introduced.
+
+Relationship ID: Rel249
+Source Mitigation ID: M1 (Data Migration Strategy)
+Target Risk ID: R4 (Cost Overrun)
+Relationship Type: Introduces
+Influence Strength: Medium
+Secondary Risk Created: Project delay.
+Applicability Conditions: Heavy data migration strategies.
+Observed Outcome: Initial project costs increase due to extensive planning.
+Evidence Type: Expert Opinion
+Confidence Level: High
+Reasoning Notes: A comprehensive migration strategy (M1) is resource-intensive and requires high upfront investment, which can temporarily inflate project costs.
+Standardized Relationship Entry: IF a comprehensive data migration strategy is applied THEN the risk of initial cost increase is introduced.
+
+Relationship ID: Rel250
+Source Mitigation ID: M14 (Component Decoupling)
+Target Risk ID: R8 (Transfer of Legacy Flaws)
+Relationship Type: Introduces
+Influence Strength: High
+Secondary Risk Created: Complexity explosion.
+Applicability Conditions: Breaking down a monolith.
+Observed Outcome: Architectural complexity increases significantly.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: Decoupling components (M14) adds networking layers and dependencies, which if not managed, increases the risk of maintaining technical debt/flaws.
+Standardized Relationship Entry: IF aggressive component decoupling is applied THEN the risk of unmanageable architectural complexity is introduced.
+
+Relationship ID: Rel251
+Source Mitigation ID: M6 (Proof of Concept)
+Target Risk ID: R4 (Cost Overrun)
+Relationship Type: Introduces
+Influence Strength: Low
+Secondary Risk Created: Initial budget consumption.
+Applicability Conditions: Execution of PoCs.
+Observed Outcome: Consumes time and budget before the main project start.
+Evidence Type: Case Study
+Confidence Level: High
+Reasoning Notes: While M6 reduces overall risk, it requires upfront investment which can count as an initial cost overrun relative to the budget plan.
+Standardized Relationship Entry: IF a proof of concept is executed THEN a temporary increase in project startup costs is introduced.
+
+Relationship ID: Rel704
+Source Mitigation ID: M9 (Business Model & Culture Alignment)
+Target Risk ID: R128 (Rebuild Organizational Maturity Risk)
+Relationship Type: Introduces
+Influence Strength: Low
+Secondary Risk Created: Creates high disruption to organizational operations and existing business workflows.
+Applicability Conditions: Support from management, willingness to change processes.
+Observed Outcome: Applying Business Model & Culture Alignment (M9) carries a documented trade-off ('Creates high disruption to organizational operations and existing business workflows.') that overlaps with the known profile of Rebuild Organizational Maturity Risk (R128).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Keyword and thematic overlap between the mitigation's documented trade-off ('Creates high disruption to organizational operations and existing business workflows.') and the profile of Rebuild Organizational Maturity Risk (R128) (tags: #Rebuild #BusinessAgility #OrganizationalMaturity #CloudFirst) suggests this mitigation can introduce or aggravate this risk as an unintended side effect.
+Standardized Relationship Entry: IF Business Model & Culture Alignment (M9) is applied THEN it may introduce or increase Rebuild Organizational Maturity Risk (R128) as a side effect.
+
+Relationship ID: Rel705
+Source Mitigation ID: M14 (Component Decoupling)
+Target Risk ID: R18 (Orchestration and Complexity Explosion)
+Relationship Type: Introduces
+Influence Strength: Low
+Secondary Risk Created: Increases architectural complexity and requires advanced management of distributed services.
+Applicability Conditions: Relevant in distributed cloud deployments
+Observed Outcome: Applying Component Decoupling (M14) carries a documented trade-off ('Increases architectural complexity and requires advanced management of distributed services.') that overlaps with the known profile of Orchestration and Complexity Explosion (R18).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Keyword and thematic overlap between the mitigation's documented trade-off ('Increases architectural complexity and requires advanced management of distributed services.') and the profile of Orchestration and Complexity Explosion (R18) (tags: #Complexity #Orchestration #Agility) suggests this mitigation can introduce or aggravate this risk as an unintended side effect.
+Standardized Relationship Entry: IF Component Decoupling (M14) is applied THEN it may introduce or increase Orchestration and Complexity Explosion (R18) as a side effect.
+
+Relationship ID: Rel706
+Source Mitigation ID: M44 (Legacy Virtualization Layer)
+Target Risk ID: R124 (Duplicate effort after short-lived rehost)
+Relationship Type: Introduces
+Influence Strength: Low
+Secondary Risk Created: Adds temporary virtualization work and must later be dismantled.
+Applicability Conditions: Applies during phased deployment while other legacy systems remain operational.
+Observed Outcome: Applying Legacy Virtualization Layer (M44) carries a documented trade-off ('Adds temporary virtualization work and must later be dismantled.') that overlaps with the known profile of Duplicate effort after short-lived rehost (R124).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Keyword and thematic overlap between the mitigation's documented trade-off ('Adds temporary virtualization work and must later be dismantled.') and the profile of Duplicate effort after short-lived rehost (R124) (tags: #Rehost #DuplicateEffort #Refactor #Rearchitect #Roadmap) suggests this mitigation can introduce or aggravate this risk as an unintended side effect.
+Standardized Relationship Entry: IF Legacy Virtualization Layer (M44) is applied THEN it may introduce or increase Duplicate effort after short-lived rehost (R124) as a side effect.
+
+Relationship ID: Rel707
+Source Mitigation ID: M48 (Lifecycle Evaluation of New Technologies)
+Target Risk ID: R34 (Silent Resistance and Delayed Adoption)
+Relationship Type: Introduces
+Influence Strength: Low
+Secondary Risk Created: May slow adoption; evidence may be limited for emerging technologies.
+Applicability Conditions: Applies before adopting OO, components, agents, GUIs, real-time/concurrent approaches, etc.
+Observed Outcome: Applying Lifecycle Evaluation of New Technologies (M48) carries a documented trade-off ('May slow adoption; evidence may be limited for emerging technologies.') that overlaps with the known profile of Silent Resistance and Delayed Adoption (R34).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Keyword and thematic overlap between the mitigation's documented trade-off ('May slow adoption; evidence may be limited for emerging technologies.') and the profile of Silent Resistance and Delayed Adoption (R34) (tags: #SilentResistance #DelayedAdoption #KnowledgeSharing #DigitalTransformation) suggests this mitigation can introduce or aggravate this risk as an unintended side effect.
+Standardized Relationship Entry: IF Lifecycle Evaluation of New Technologies (M48) is applied THEN it may introduce or increase Silent Resistance and Delayed Adoption (R34) as a side effect.
+
+Relationship ID: Rel708
+Source Mitigation ID: M60 (ADM five-step database reengineering)
+Target Risk ID: R67 (Incomplete service-extraction pattern coverage)
+Relationship Type: Introduces
+Influence Strength: Low
+Secondary Risk Created: Limited pattern coverage may miss useful services.
+Applicability Conditions: Relational database to Web Services migration.
+Observed Outcome: Applying ADM five-step database reengineering (M60) carries a documented trade-off ('Limited pattern coverage may miss useful services.') that overlaps with the known profile of Incomplete service-extraction pattern coverage (R67).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Keyword and thematic overlap between the mitigation's documented trade-off ('Limited pattern coverage may miss useful services.') and the profile of Incomplete service-extraction pattern coverage (R67) (tags: #ADM #ServiceDiscovery #Patterns) suggests this mitigation can introduce or aggravate this risk as an unintended side effect.
+Standardized Relationship Entry: IF ADM five-step database reengineering (M60) is applied THEN it may introduce or increase Incomplete service-extraction pattern coverage (R67) as a side effect.
+
+Relationship ID: Rel709
+Source Mitigation ID: M125 (Do not rehost problematic workloads without modernization)
+Target Risk ID: R139 (Overly complex slice risk)
+Relationship Type: Introduces
+Influence Strength: Low
+Secondary Risk Created: Modernizing during migration can increase complexity and timeline risk.
+Applicability Conditions: Applies when rehost is considered for a problematic workload.
+Observed Outcome: Applying Do not rehost problematic workloads without modernization (M125) carries a documented trade-off ('Modernizing during migration can increase complexity and timeline risk.') that overlaps with the known profile of Overly complex slice risk (R139).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Keyword and thematic overlap between the mitigation's documented trade-off ('Modernizing during migration can increase complexity and timeline risk.') and the profile of Overly complex slice risk (R139) (tags: #Complexity #ThinSlices #Errors #StakeholderConfidence) suggests this mitigation can introduce or aggravate this risk as an unintended side effect.
+Standardized Relationship Entry: IF Do not rehost problematic workloads without modernization (M125) is applied THEN it may introduce or increase Overly complex slice risk (R139) as a side effect.
+
+Relationship ID: Rel710
+Source Mitigation ID: M131 (Use automated workload discovery and assessment tools)
+Target Risk ID: R130 (Tool-only discovery misses undocumented dependencies)
+Relationship Type: Introduces
+Influence Strength: Low
+Secondary Risk Created: Tools reduce manual effort but might miss undocumented dependencies.
+Applicability Conditions: Applies during assessment before moving workloads to Microsoft Azure.
+Observed Outcome: Applying Use automated workload discovery and assessment tools (M131) carries a documented trade-off ('Tools reduce manual effort but might miss undocumented dependencies.') that overlaps with the known profile of Tool-only discovery misses undocumented dependencies (R130).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Keyword and thematic overlap between the mitigation's documented trade-off ('Tools reduce manual effort but might miss undocumented dependencies.') and the profile of Tool-only discovery misses undocumented dependencies (R130) (tags: #Discovery #UndocumentedDependencies #ArchitectureAssessment #MigrationPlanning) suggests this mitigation can introduce or aggravate this risk as an unintended side effect.
+Standardized Relationship Entry: IF Use automated workload discovery and assessment tools (M131) is applied THEN it may introduce or increase Tool-only discovery misses undocumented dependencies (R130) as a side effect.
+
+Relationship ID: Rel711
+Source Mitigation ID: M135 (Avoid unnecessary framework changes)
+Target Risk ID: R109 (Non-Isolated Change Impact Risk)
+Relationship Type: Introduces
+Influence Strength: Low
+Secondary Risk Created: Avoiding a framework change may defer some modernization work.
+Applicability Conditions: Applies when framework migration is being considered.
+Observed Outcome: Applying Avoid unnecessary framework changes (M135) carries a documented trade-off ('Avoiding a framework change may defer some modernization work.') that overlaps with the known profile of Non-Isolated Change Impact Risk (R109).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Keyword and thematic overlap between the mitigation's documented trade-off ('Avoiding a framework change may defer some modernization work.') and the profile of Non-Isolated Change Impact Risk (R109) (tags: #IsolatedDeployment #ComponentImpact #SCS #TestingRisk) suggests this mitigation can introduce or aggravate this risk as an unintended side effect.
+Standardized Relationship Entry: IF Avoid unnecessary framework changes (M135) is applied THEN it may introduce or increase Non-Isolated Change Impact Risk (R109) as a side effect.
+
+Relationship ID: Rel712
+Source Mitigation ID: M139 (Define thin, independent, value-delivering slices)
+Target Risk ID: R74 (Scaling Risk for Large Real-World Codebases)
+Relationship Type: Introduces
+Influence Strength: Low
+Secondary Risk Created: Slices that are too small, too large, too low-value, or too high-risk create new risks.
+Applicability Conditions: Strangler Fig modernization of large or complex systems.
+Observed Outcome: Applying Define thin, independent, value-delivering slices (M139) carries a documented trade-off ('Slices that are too small, too large, too low-value, or too high-risk create new risks.') that overlaps with the known profile of Scaling Risk for Large Real-World Codebases (R74).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Keyword and thematic overlap between the mitigation's documented trade-off ('Slices that are too small, too large, too low-value, or too high-risk create new risks.') and the profile of Scaling Risk for Large Real-World Codebases (R74) (tags: [#Scalability, #HierarchicalBSG, #Chunking, #IncrementalValidation]) suggests this mitigation can introduce or aggravate this risk as an unintended side effect.
+Standardized Relationship Entry: IF Define thin, independent, value-delivering slices (M139) is applied THEN it may introduce or increase Scaling Risk for Large Real-World Codebases (R74) as a side effect.
+
+Relationship ID: Rel713
+Source Mitigation ID: M144 (Allocate people and resources in phases)
+Target Risk ID: R136 (People allocation and skill-split)
+Relationship Type: Introduces
+Influence Strength: Low
+Secondary Risk Created: Still requires balancing old-system support with new-system development.
+Applicability Conditions: Incremental Strangler Fig modernization.
+Observed Outcome: Applying Allocate people and resources in phases (M144) carries a documented trade-off ('Still requires balancing old-system support with new-system development.') that overlaps with the known profile of People allocation and skill-split (R136).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Keyword and thematic overlap between the mitigation's documented trade-off ('Still requires balancing old-system support with new-system development.') and the profile of People allocation and skill-split (R136) (tags: #PeopleAllocation #Skills #Staffing #LegacySupport #ModernizationTeam) suggests this mitigation can introduce or aggravate this risk as an unintended side effect.
+Standardized Relationship Entry: IF Allocate people and resources in phases (M144) is applied THEN it may introduce or increase People allocation and skill-split (R136) as a side effect.
+
+Relationship ID: Rel714
+Source Mitigation ID: M160 (Duct tape approach for local, small-scale changes)
+Target Risk ID: R153 (Accumulated cost of multiple duct tape changes)
+Relationship Type: Introduces
+Influence Strength: Low
+Secondary Risk Created: Can introduce cost from multiple changes, patchwork applications, bad design, and insufficient review.
+Applicability Conditions: Suitable for current problems such as improving KPIs, or when budget is tight in the middle of the year.
+Observed Outcome: Applying Duct tape approach for local, small-scale changes (M160) carries a documented trade-off ('Can introduce cost from multiple changes, patchwork applications, bad design, and insufficient review.') that overlaps with the known profile of Accumulated cost of multiple duct tape changes (R153).
+Evidence Type: Expert Opinion
+Confidence Level: Medium
+Reasoning Notes: Keyword and thematic overlap between the mitigation's documented trade-off ('Can introduce cost from multiple changes, patchwork applications, bad design, and insufficient review.') and the profile of Accumulated cost of multiple duct tape changes (R153) (tags: #DuctTapeApproach #CostRisk #MultipleChanges #SmallScaleModernization) suggests this mitigation can introduce or aggravate this risk as an unintended side effect.
+Standardized Relationship Entry: IF Duct tape approach for local, small-scale changes (M160) is applied THEN it may introduce or increase Accumulated cost of multiple duct tape changes (R153) as a side effect.
