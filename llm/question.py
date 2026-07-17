@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-
 import requests
 from dotenv import load_dotenv
 
@@ -9,7 +8,7 @@ env_path = Path(__file__).resolve().parent / ".env"
 load_dotenv(env_path)
 
 
-def ask_question(question, risks, mitigations, relationships):
+def ask_question(question, risks, mitigations, relationships, model="gpt-5.5"):
     api_key = os.getenv("KICONNECT_API_KEY")
 
     if not api_key:
@@ -45,7 +44,7 @@ Question:
 """
 
     data = {
-        "model": "gpt-5.5",
+        "model": model,
         "messages": [
             {
                 "role": "system",

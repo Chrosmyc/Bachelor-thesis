@@ -4,15 +4,28 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-api_key = os.getenv("KICONNECT_API_KEY")
 
-url = "https://chat.kiconnect.nrw/api/v1/models"
+def get_models():
+    api_key = os.getenv("KICONNECT_API_KEY")
 
-headers = {
-    "Authorization": f"Bearer {api_key}"
-}
+    if not api_key:
+        raise RuntimeError("KICONNECT_API_KEY wurde nicht gefunden.")
 
-response = requests.get(url, headers=headers)
+    url = "https://chat.kiconnect.nrw/api/v1/models"
+    headers = {"Authorization": f"Bearer {api_key}"}
 
-print(response.status_code)
-print(response.text)
+    response = requests.get(url, headers=headers, timeout=30)
+    response.raise_for_status()
+
+    models = [model["id"] for model in response.json()["data"]]
+
+    # Embedding-Modelle funktionieren nicht mit /chat/completions.
+    return [
+        model for model in models
+        if "embedding" not in model.lower()
+        and not model.lower().startswith("e5-")
+    ]
+
+
+if __name__ == "__main__":
+    print("\n".join(get_models()))
