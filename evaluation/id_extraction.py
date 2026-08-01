@@ -7,6 +7,8 @@ name is not enough to judge correctness.
 Pure logic only (no Streamlit import here) so it stays easy to unit test.
 """
 
+from __future__ import annotations
+
 import re
 
 # "R1", "R23", ... but NOT "Rel1" (no digit right after the "R" in "Rel").
