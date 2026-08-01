@@ -7,7 +7,12 @@ from parser.load_all import load_all
 from llm.question import ask_question
 from llm.show_models import get_models
 from evaluation.tasks import TASKS
-from evaluation.id_extraction import extract_mentioned_ids, build_known_id_lookup
+from evaluation.id_extraction import (
+    extract_mentioned_ids,
+    build_known_id_lookup,
+    label_for,
+    format_details,
+)
 
 
 TASK_PLACEHOLDER = "— Select a task —"
@@ -145,15 +150,18 @@ def apply_selected_task() -> None:
 
 
 def render_extracted_ids_box(answer_text: str) -> None:
-    """Show a small box listing every Risk-/Mitigation-/Relationship-ID
-    mentioned in an answer, so the evaluator does not have to scan the
-    whole text by hand. IDs not found in the dataset are flagged."""
+    """Show a box listing every Risk-/Mitigation-/Relationship-ID mentioned
+    in an answer. Each ID gets its own expander with ALL documented fields
+    from the Risk / Mitigation / Relationship template, so the evaluator
+    can directly compare the model's claim against the ground truth - a
+    bare name is not enough to judge correctness. IDs the model mentioned
+    but that do not exist in the dataset are flagged (possible hallucination)."""
     mentioned = extract_mentioned_ids(answer_text)
     known = load_known_id_lookup()
     total_found = sum(len(ids) for ids in mentioned.values())
 
     with st.container(border=True):
-        st.markdown("**🔎 IDs mentioned in this answer**")
+        st.markdown("**🔎 IDs mentioned in this answer — click to see the full documented entry**")
 
         if total_found == 0:
             st.caption("No R-, M-, or Rel-IDs were found in the answer text.")
@@ -164,21 +172,23 @@ def render_extracted_ids_box(answer_text: str) -> None:
             "mitigations": "Mitigations",
             "relationships": "Relationships",
         }
-        columns = st.columns(3)
 
-        for column, section_key in zip(columns, section_titles):
+        for section_key, section_title in section_titles.items():
             ids = mentioned[section_key]
-            with column:
-                st.caption(f"{section_titles[section_key]} ({len(ids)})")
-                if not ids:
-                    st.write("–")
+            if not ids:
+                continue
+
+            st.markdown(f"**{section_title} ({len(ids)})**")
+            for id_value in ids:
+                obj = known[section_key].get(id_value)
+                title = f"{id_value} — {label_for(section_key, obj)}"
+
+                if obj is None:
+                    st.warning(f"`{id_value}` ⚠️ not documented in the knowledge base (possible hallucination).")
                     continue
-                for id_value in ids:
-                    label = known[section_key].get(id_value)
-                    if label:
-                        st.write(f"`{id_value}` – {label}")
-                    else:
-                        st.write(f"`{id_value}` ⚠️ not in knowledge base")
+
+                with st.expander(title):
+                    st.markdown(format_details(section_key, obj))
 
 
 configure_secrets()
