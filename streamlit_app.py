@@ -6,6 +6,11 @@ import streamlit as st
 from parser.load_all import load_all
 from llm.question import ask_question
 from llm.show_models import get_models
+from evaluation.tasks import TASKS
+from evaluation.id_extraction import extract_mentioned_ids, build_known_id_lookup
+
+
+TASK_PLACEHOLDER = "— Select a task —"
 
 
 st.set_page_config(
@@ -118,8 +123,62 @@ def load_models():
     return get_models()
 
 
+@st.cache_resource(show_spinner=False)
+def load_known_id_lookup():
+    """ID -> label lookup built from the FULL knowledge base, regardless of
+    which context condition was sent to the model. Used only to display
+    names next to extracted IDs and to flag IDs that do not exist at all."""
+    risks, mitigations, relationships = load_structured_context()
+    return build_known_id_lookup(risks, mitigations, relationships)
+
+
 def reset_history() -> None:
     st.session_state.answers = []
+
+
+def apply_selected_task() -> None:
+    """Callback for the task dropdown: fills the task text area with the
+    full wording of the selected task, so nothing has to be copy-pasted."""
+    label = st.session_state.task_selector
+    if label != TASK_PLACEHOLDER:
+        st.session_state.question_text = TASKS[label]
+
+
+def render_extracted_ids_box(answer_text: str) -> None:
+    """Show a small box listing every Risk-/Mitigation-/Relationship-ID
+    mentioned in an answer, so the evaluator does not have to scan the
+    whole text by hand. IDs not found in the dataset are flagged."""
+    mentioned = extract_mentioned_ids(answer_text)
+    known = load_known_id_lookup()
+    total_found = sum(len(ids) for ids in mentioned.values())
+
+    with st.container(border=True):
+        st.markdown("**🔎 IDs mentioned in this answer**")
+
+        if total_found == 0:
+            st.caption("No R-, M-, or Rel-IDs were found in the answer text.")
+            return
+
+        section_titles = {
+            "risks": "Risks",
+            "mitigations": "Mitigations",
+            "relationships": "Relationships",
+        }
+        columns = st.columns(3)
+
+        for column, section_key in zip(columns, section_titles):
+            ids = mentioned[section_key]
+            with column:
+                st.caption(f"{section_titles[section_key]} ({len(ids)})")
+                if not ids:
+                    st.write("–")
+                    continue
+                for id_value in ids:
+                    label = known[section_key].get(id_value)
+                    if label:
+                        st.write(f"`{id_value}` – {label}")
+                    else:
+                        st.write(f"`{id_value}` ⚠️ not in knowledge base")
 
 
 configure_secrets()
@@ -168,14 +227,25 @@ if "answers" not in st.session_state:
 
 st.info(
     "Use the same selected tasks for all four context conditions. "
-    "Copy one task from the cheat sheet, submit it, and evaluate the answer "
-    "in the questionnaire."
+    "Pick a task from the dropdown below (or paste your own), submit it, "
+    "and evaluate the answer in the questionnaire."
 )
+
+st.selectbox(
+    "Quick-select an evaluation task",
+    options=[TASK_PLACEHOLDER] + list(TASKS.keys()),
+    key="task_selector",
+    on_change=apply_selected_task,
+)
+
+if "question_text" not in st.session_state:
+    st.session_state.question_text = ""
 
 question = st.text_area(
     "Task / question",
-    height=180,
-    placeholder="Paste one evaluation task here...",
+    height=220,
+    key="question_text",
+    placeholder="Paste one evaluation task here, or pick one above...",
 )
 
 submit = st.button(
@@ -219,3 +289,4 @@ if st.session_state.answers:
             st.write(item["question"])
             st.markdown("**Answer**")
             st.markdown(item["answer"])
+            render_extracted_ids_box(item["answer"])
