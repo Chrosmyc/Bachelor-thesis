@@ -236,7 +236,7 @@ if "answers" not in st.session_state:
     st.session_state.answers = []
 
 st.info(
-    "Use the same selected tasks for all four context conditions. "
+    "Use any task you want but cover every context condition. "
     "Pick a task from the dropdown below (or paste your own), submit it, "
     "and evaluate the answer in the questionnaire."
 )
