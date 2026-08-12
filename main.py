@@ -110,13 +110,13 @@ def main():
     print(f"\nSelected Context: {context_name}")
     print_context_summary(context_key, risks, mitigations, relationships)
 
-    """
+    
     visualize(
         risks,
         mitigations,
         relationships,
     )
-    """
+    
 
     model = choose_model()
     print(f"Selected Model: {model}")
