@@ -58,6 +58,7 @@ def create_markdown(data):
 id: {data.get("Mitigation ID","")}
 type: Mitigation
 title: {data.get("Mitigation Name","")}
+cluster:
 
 papers:
 """

@@ -64,6 +64,7 @@ def create_markdown(data):
 id: {data.get("Risk ID","")}
 type: Risk
 title: {data.get("Risk Name","")}
+cluster:
 dimension: {data.get("Dimension","")}
 granularity: {data.get("Granularity Level","")}
 
