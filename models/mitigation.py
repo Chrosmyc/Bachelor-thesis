@@ -6,6 +6,7 @@ class Mitigation:
     mitigation_id: str = ""
     paper_id: str = ""
     mitigation_name: str = ""
+    cluster: str = ""
     related_risks: list[str] = field(default_factory=list)
 
     mitigation_description: str = ""

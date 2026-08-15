@@ -20,6 +20,7 @@ def parse_mitigation_file(file_path):
         mitigation_id=metadata.get("id", ""),
         paper_id=join_list(metadata.get("papers", [])),
         mitigation_name=metadata.get("title", ""),
+        cluster=str(metadata.get("cluster") or ""),
         related_risks=metadata.get("related_risks", []),
 
         mitigation_description=sections.get("Description", ""),

@@ -6,6 +6,7 @@ class Risk:
     risk_id: str = ""
     paper_id: str = ""
     risk_name: str = ""
+    cluster: str = ""
     risk_description: str = ""
     modernization_strategy: str = ""
     dimension: str = ""

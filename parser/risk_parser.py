@@ -20,6 +20,7 @@ def parse_risk_file(file_path):
         risk_id=metadata.get("id", ""),
         paper_id=join_list(metadata.get("papers", [])),
         risk_name=metadata.get("title", ""),
+        cluster=str(metadata.get("cluster") or ""),
         risk_description=sections.get("Description", ""),
         modernization_strategy=join_list(metadata.get("strategy", [])),
         dimension=metadata.get("dimension", ""),
